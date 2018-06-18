@@ -1,4 +1,4 @@
-Wellness projectoct inventory module
+Wellness project inventory module
 ==========================
 
 Description
