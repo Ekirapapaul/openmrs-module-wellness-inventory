@@ -33,7 +33,7 @@
             <ref bean="transactionManager" />
         </property>
         <property name="target">
-            <bean class="org.openmrs.module.wellnessinventory.api.impl.WellnessinventoryServiceImpl">
+            <bean class="org.openmrs.module.wellnessinventory.api.service.WellnessinventoryServiceImpl">
                 <property name="dao" ref="wellnessinventory.WellnessinventoryDao" />
             </bean>
         </property>

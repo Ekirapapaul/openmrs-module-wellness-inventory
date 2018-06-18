@@ -18,7 +18,7 @@ import org.openmrs.User;
 import org.openmrs.api.UserService;
 import org.openmrs.module.wellnessinventory.Item;
 import org.openmrs.module.wellnessinventory.api.dao.WellnessinventoryDao;
-import org.openmrs.module.wellnessinventory.api.impl.WellnessinventoryServiceImpl;
+import org.openmrs.module.wellnessinventory.api.service.WellnessinventoryServiceImpl;
 import static org.mockito.Mockito.*;
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.*;

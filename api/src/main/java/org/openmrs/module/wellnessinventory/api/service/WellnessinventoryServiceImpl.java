@@ -7,7 +7,7 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-package org.openmrs.module.wellnessinventory.api.impl;
+package org.openmrs.module.wellnessinventory.api.service;
 
 import org.openmrs.api.APIException;
 import org.openmrs.api.UserService;
