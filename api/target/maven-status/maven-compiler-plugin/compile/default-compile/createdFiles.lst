@@ -1,0 +1,7 @@
+org/openmrs/module/wellnessinventory/WellnessinventoryConfig.class
+org/openmrs/module/wellnessinventory/api/model/InventoryItem.class
+org/openmrs/module/wellnessinventory/api/dao/WellnessinventoryDao.class
+org/openmrs/module/wellnessinventory/WellnessinventoryActivator.class
+org/openmrs/module/wellnessinventory/api/WellnessinventoryService.class
+org/openmrs/module/wellnessinventory/Item.class
+org/openmrs/module/wellnessinventory/api/impl/WellnessinventoryServiceImpl.class

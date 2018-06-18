@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/wellnessinventory.iml" filepath="$PROJECT_DIR$/wellnessinventory.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api/wellnessinventory-api.iml" filepath="$PROJECT_DIR$/api/wellnessinventory-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/omod/wellnessinventory-omod.iml" filepath="$PROJECT_DIR$/omod/wellnessinventory-omod.iml" />
+    </modules>
+  </component>
+</project>

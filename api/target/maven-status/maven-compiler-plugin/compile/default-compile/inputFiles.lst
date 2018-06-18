@@ -1,0 +1,7 @@
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/Item.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/WellnessinventoryActivator.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/api/WellnessinventoryService.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/WellnessinventoryConfig.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/api/model/InventoryItem.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/api/dao/WellnessinventoryDao.java
+/home/ekirapa/Paul/Projects/openmrs/wellnessinventory/api/src/main/java/org/openmrs/module/wellnessinventory/api/impl/WellnessinventoryServiceImpl.java
