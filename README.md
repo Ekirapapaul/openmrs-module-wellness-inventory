@@ -1,9 +1,9 @@
-${moduleName}
+Wellness projectoct inventory module
 ==========================
 
 Description
 -----------
-This is a very basic module which can be used as a starting point in creating a new module.
+An openmrs inventory module for the wellness project.
 
 Building from Source
 --------------------
