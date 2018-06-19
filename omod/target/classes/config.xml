@@ -101,6 +101,11 @@
 		<file>messages_es.properties</file>
 	</messages>
 	<!-- /Internationalization -->
+
+    <!-- Maps hibernate file's, if present -->
+    <mappingFiles>
+        inventoryitem.hbm.xml
+    </mappingFiles>
 	
 </module>
 

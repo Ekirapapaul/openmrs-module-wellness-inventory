@@ -55,4 +55,38 @@
             </list>
         </property>
     </bean>
+
+    <!-- Module service -->
+
+    <bean id="inventoryItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager" />
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
+                <property name="inventoryItemDao">
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl">
+                        <property name="sessionFactory"><ref bean="sessionFactory"/></property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors" />
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource" />
+        </property>
+    </bean>
+
+    <!-- Register services -->
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list merge="true">
+                <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemService</value>
+                <ref bean="inventoryItemService" />
+            </list>
+        </property>
+    </bean>
+
 </beans>

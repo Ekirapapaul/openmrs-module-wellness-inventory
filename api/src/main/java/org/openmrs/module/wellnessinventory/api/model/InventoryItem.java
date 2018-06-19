@@ -8,18 +8,28 @@ public class InventoryItem extends BaseOpenmrsObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private Integer itemId;
+	
 	private String name;
 	
 	private String description;
 	
-	private int itemId;
+	private String itemCode;
 	
-	public int getItemId() {
-		return itemId;
+	public String getItemCode() {
+		return itemCode;
 	}
 	
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setItemCode(String itemCode) {
+		this.itemCode = itemCode;
+	}
+	
+	public String getItemId() {
+		return itemCode;
+	}
+	
+	public void setItemId(String itemCode) {
+		this.itemCode = itemCode;
 	}
 	
 	public String getName() {
@@ -40,11 +50,11 @@ public class InventoryItem extends BaseOpenmrsObject implements Serializable {
 	
 	@Override
 	public Integer getId() {
-		return this.itemId;
+		return itemId;
 	}
 	
 	@Override
 	public void setId(Integer integer) {
-		this.itemId = itemId;
+		this.itemId = integer;
 	}
 }

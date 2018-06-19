@@ -43,14 +43,15 @@
         </preConditions>
         <comment>Create the inventory item table</comment>
         <createTable tableName="inventory_item">
-            <column autoIncrement="true" name="inventory_id" type="int">
-                <constraints primaryKey="true" nullable="false"/>
+            <column name="item_id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true"/>
             </column>
             <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="description" type="varchar(255)"/>
             <column name="uuid" type="char(38)"/>
+            <column name="item_code" type="char(38)"/>
         </createTable>
     </changeSet>
 
