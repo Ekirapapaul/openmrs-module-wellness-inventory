@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<dataset>
-    <inventory_item name="Supplement" item_id="1" descriprion="Supplement item"/>
-    <inventory_item name="Vitamins" item_id="2" descriprion="Vitamins item"/>
-    <inventory_item name="Protein" item_id="3" descriprion="Protein item"/>
-    <inventory_item name="Oats" item_id="4" descriprion="Oats item"/>
-
-</dataset>

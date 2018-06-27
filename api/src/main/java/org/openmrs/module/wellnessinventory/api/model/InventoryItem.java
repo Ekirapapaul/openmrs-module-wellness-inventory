@@ -7,8 +7,16 @@ import java.io.Serializable;
 public class InventoryItem extends BaseOpenmrsObject implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	
-	private Integer itemId;
+
+    public Integer getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(Integer itemId) {
+        this.itemId = itemId;
+    }
+
+    private Integer itemId;
 	
 	private String name;
 	
@@ -23,10 +31,7 @@ public class InventoryItem extends BaseOpenmrsObject implements Serializable {
 	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
 	}
-	
-	public String getItemId() {
-		return itemCode;
-	}
+
 	
 	public void setItemId(String itemCode) {
 		this.itemCode = itemCode;

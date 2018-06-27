@@ -14,11 +14,38 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.openmrs.api</groupId>
+                <artifactId>openmrs-api</artifactId>
+                <version>${openMRSVersion}</version>
+                <type>test-jar</type>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.openmrs.test</groupId>
                 <artifactId>openmrs-test</artifactId>
                 <type>pom</type>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.openmrs.web</groupId>
+                <artifactId>openmrs-web</artifactId>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.openmrs.web</groupId>
+                <artifactId>openmrs-web</artifactId>
+                <scope>test</scope>
+                <type>test-jar</type>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javaxServletVersion}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+    <properties>
+        <openmrsPlatformVersion>1.11.7</openmrsPlatformVersion>
+    </properties>
 </project>
