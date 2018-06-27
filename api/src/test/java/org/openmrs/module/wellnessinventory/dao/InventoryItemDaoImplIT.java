@@ -18,10 +18,10 @@ import java.util.List;
 public class InventoryItemDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-    HibernateInventoryItemDao itemDao;
-
+	HibernateInventoryItemDao itemDao;
+	
 	@Autowired
-    SessionFactory sessionFactory;
+	SessionFactory sessionFactory;
 	
 	@Before
 	public void beforeAllTests() throws Exception {
@@ -31,6 +31,6 @@ public class InventoryItemDaoImplIT extends BaseModuleContextSensitiveTest {
 	@Test
 	public void shouldGetAllItems() {
 		List<InventoryItem> inventoryItems = itemDao.getAllInventoryItems();
-        Assert.assertEquals(4, inventoryItems.size());
+		Assert.assertEquals(4, inventoryItems.size());
 	}
 }
