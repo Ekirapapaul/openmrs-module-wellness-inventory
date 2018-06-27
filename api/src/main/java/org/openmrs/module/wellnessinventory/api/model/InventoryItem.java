@@ -1,38 +1,21 @@
 package org.openmrs.module.wellnessinventory.api.model;
 
+import org.openmrs.BaseOpenmrsData;
 import org.openmrs.BaseOpenmrsObject;
 
 import java.io.Serializable;
 
-public class InventoryItem extends BaseOpenmrsObject implements Serializable {
+public class InventoryItem extends BaseOpenmrsData {
 	
 	private static final long serialVersionUID = 1L;
 	
-	public Integer getItemId() {
-		return itemId;
-	}
-	
-	public void setItemId(Integer itemId) {
-		this.itemId = itemId;
-	}
-	
-	private Integer itemId;
+	private Integer id;
 	
 	private String name;
 	
 	private String description;
 	
 	private String itemCode;
-	
-	@Override
-	public Integer getId() {
-		return this.itemId;
-	}
-	
-	@Override
-	public void setId(Integer id) {
-		this.itemId = id;
-	}
 	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -60,5 +43,15 @@ public class InventoryItem extends BaseOpenmrsObject implements Serializable {
 	
 	public void setItemCode(String itemCode) {
 		this.itemCode = itemCode;
+	}
+	
+	@Override
+	public Integer getId() {
+		return this.id;
+	}
+	
+	@Override
+	public void setId(Integer id) {
+		this.id = id;
 	}
 }

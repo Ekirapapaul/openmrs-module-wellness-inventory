@@ -29,15 +29,15 @@ public class InventoryServiceImplIT extends BaseModuleContextSensitiveTest {
 		List<InventoryItem> items = itemService.getAllInventoryItems();
 		Assert.assertEquals(4, items.size());
 	}
-
+	
 	@Test
-    public void shouldSaveItem(){
-	    InventoryItem inventoryItem = new InventoryItem();
-	    inventoryItem.setName("new");
-	    inventoryItem.setItemCode("4545");
-	    inventoryItem.setDescription("description");
-	    InventoryItem  savedItem = itemService.saveInventoryItem(inventoryItem);
-	    Assert.assertNotNull(savedItem);
-	    Assert.assertEquals(inventoryItem, savedItem);
-    }
+	public void shouldSaveItem() {
+		InventoryItem inventoryItem = new InventoryItem();
+		inventoryItem.setName("new");
+		inventoryItem.setItemCode("4545");
+		inventoryItem.setDescription("description");
+		InventoryItem savedItem = itemService.saveInventoryItem(inventoryItem);
+		Assert.assertNotNull(savedItem);
+		Assert.assertEquals(inventoryItem, savedItem);
+	}
 }

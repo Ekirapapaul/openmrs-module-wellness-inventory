@@ -2,6 +2,7 @@ package org.openmrs.module.wellnessinventory.api.dao.impl;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
@@ -44,7 +45,9 @@ public class HibernateInventoryItemDao implements InventoryItemDao {
 	
 	@Override
 	public InventoryItem saveInventoryItem(InventoryItem inventoryItem) {
-		sessionFactory.getCurrentSession().saveOrUpdate(inventoryItem);
+        Session session = sessionFactory.getCurrentSession();
+        session.saveOrUpdate(inventoryItem);
+        session.flush();
 		return inventoryItem;
 	}
 	
