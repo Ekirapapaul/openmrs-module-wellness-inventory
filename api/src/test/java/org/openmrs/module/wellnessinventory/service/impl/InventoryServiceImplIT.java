@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.module.wellnessinventory.api.service.InventoryItemService;
@@ -39,5 +40,8 @@ public class InventoryServiceImplIT extends BaseModuleContextSensitiveTest {
 		InventoryItem savedItem = itemService.saveInventoryItem(inventoryItem);
 		Assert.assertNotNull(savedItem);
 		Assert.assertEquals(inventoryItem, savedItem);
+		
+		List<InventoryItem> items = Context.getService(InventoryItemService.class).getAllInventoryItems();
+		Assert.assertEquals(5, items.size());
 	}
 }

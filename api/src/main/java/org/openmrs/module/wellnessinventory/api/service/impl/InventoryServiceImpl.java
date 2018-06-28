@@ -4,9 +4,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
-import org.openmrs.module.wellnessinventory.api.dao.impl.HibernateInventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.module.wellnessinventory.api.service.InventoryItemService;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,12 +14,12 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
-	private HibernateInventoryItemDao inventoryItemDao;
+	private InventoryItemDao inventoryItemDao;
 	
 	/**
 	 * @param inventoryItemDao the dao to set
 	 */
-	public void setInventoryItemDao(HibernateInventoryItemDao inventoryItemDao) {
+	public void setInventoryItemDao(InventoryItemDao inventoryItemDao) {
 		this.inventoryItemDao = inventoryItemDao;
 	}
 	
@@ -50,6 +50,7 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	 * @see InventoryItemService#saveInventoryItem(InventoryItem) ()
 	 */
 	@Override
+	@Transactional
 	public InventoryItem saveInventoryItem(InventoryItem inventoryItem) {
 		return inventoryItemDao.saveInventoryItem(inventoryItem);
 	}

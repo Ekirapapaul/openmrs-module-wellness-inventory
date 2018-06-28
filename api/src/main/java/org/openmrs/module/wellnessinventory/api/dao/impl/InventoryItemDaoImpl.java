@@ -8,11 +8,12 @@ import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
-public class HibernateInventoryItemDao implements InventoryItemDao {
+public class InventoryItemDaoImpl implements InventoryItemDao {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
@@ -35,7 +36,7 @@ public class HibernateInventoryItemDao implements InventoryItemDao {
 	
 	@Override
 	public List<InventoryItem> getAllInventoryItems() {
-		return sessionFactory.getCurrentSession().createCriteria(InventoryItem.class).list();
+		return getSessionFactory().getCurrentSession().createCriteria(InventoryItem.class).list();
 	}
 	
 	@Override
@@ -45,9 +46,9 @@ public class HibernateInventoryItemDao implements InventoryItemDao {
 	
 	@Override
 	public InventoryItem saveInventoryItem(InventoryItem inventoryItem) {
-        Session session = sessionFactory.getCurrentSession();
-        session.saveOrUpdate(inventoryItem);
-        session.flush();
+		Session session = getSessionFactory().getCurrentSession();
+		session.saveOrUpdate(inventoryItem);
+		session.flush();
 		return inventoryItem;
 	}
 	

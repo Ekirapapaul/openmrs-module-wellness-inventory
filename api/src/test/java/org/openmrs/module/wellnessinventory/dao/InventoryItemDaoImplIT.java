@@ -5,7 +5,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openmrs.module.wellnessinventory.api.dao.impl.HibernateInventoryItemDao;
+import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
+import org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import java.util.List;
 public class InventoryItemDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-	HibernateInventoryItemDao itemDao;
+	InventoryItemDao itemDao;
 	
 	@Autowired
 	SessionFactory sessionFactory;

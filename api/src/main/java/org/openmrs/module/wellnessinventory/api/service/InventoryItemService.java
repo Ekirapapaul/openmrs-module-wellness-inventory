@@ -31,6 +31,7 @@ public interface InventoryItemService extends OpenmrsService {
 	 * @param inventoryItem the item to save.
 	 * @return the saved inventory item.
 	 */
+	@Transactional
 	InventoryItem saveInventoryItem(InventoryItem inventoryItem);
 	
 	/**
@@ -38,5 +39,6 @@ public interface InventoryItemService extends OpenmrsService {
 	 * 
 	 * @param inventoryItem the item to delete.
 	 */
+	@Transactional
 	void purgeInventoryItem(InventoryItem inventoryItem);
 }

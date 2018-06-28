@@ -45,30 +45,14 @@
         </property>
     </bean>
 
-    <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
-    calling Context.getService(WellnessinventoryService.class) -->
-    <bean parent="serviceContext">
-        <property name="moduleService">
-            <list>
-                <value>org.openmrs.module.wellnessinventory.api.WellnessinventoryService</value>
-                <ref bean="wellnessinventory.WellnessinventoryService"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="inventoryItemService" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+    <bean id="wellnessinventory.InventoryItemService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="transactionManager">
             <ref bean="transactionManager"/>
         </property>
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
-                <property name="inventoryItemDao">
-                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.HibernateInventoryItemDao">
-                        <property name="sessionFactory">
-                            <ref bean="sessionFactory"/>
-                        </property>
-                    </bean>
-                </property>
+                <property name="inventoryItemDao" ref="inventoryItemDaoImpl"/>
             </bean>
         </property>
         <property name="preInterceptors">
@@ -79,13 +63,56 @@
         </property>
     </bean>
 
-    <!-- Register services -->
+    <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
+    calling Context.getService(WellnessinventoryService.class)-->
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list>
+                <value>org.openmrs.module.wellnessinventory.api.WellnessinventoryService</value>
+                <ref bean="wellnessinventory.WellnessinventoryService"/>
+            </list>
+        </property>
+    </bean>
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list>
+                <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemService</value>
+                <ref bean="wellnessinventory.InventoryItemService"/>
+            </list>
+        </property>
+    </bean>
+
+
+    <!-- Register services
     <bean parent="serviceContext">
         <property name="moduleService">
             <list merge="true">
                 <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemService</value>
-                <ref local="inventoryItemService"/>
+                <bean id="inventoryItemService"
+                      class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+                    <property name="transactionManager">
+                        <ref bean="transactionManager"/>
+                    </property>
+                    <property name="target">
+                        <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
+                            <property name="inventoryItemDao">
+                                <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl">
+                                    <property name="sessionFactory">
+                                        <ref bean="sessionFactory"/>
+                                    </property>
+                                </bean>
+                            </property>
+                        </bean>
+                    </property>
+                    <property name="preInterceptors">
+                        <ref bean="serviceInterceptors"/>
+                    </property>
+                    <property name="transactionAttributeSource">
+                        <ref bean="transactionAttributeSource"/>
+                    </property>
+                </bean>
             </list>
         </property>
     </bean>
+    -->
 </beans>
