@@ -3,6 +3,8 @@ package org.openmrs.module.wellnessinventory.api.model;
 import org.openmrs.BaseOpenmrsData;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "ItemType")
 @Table(name = "inventory_item_type")
@@ -13,15 +15,18 @@ public class ItemType extends BaseOpenmrsData {
 	@GeneratedValue
 	@Column(name = "type_id", nullable = false)
 	private Integer type_id;
-	
+
 	@Basic
 	@Column(name = "name", length = 30, nullable = false)
 	private String name;
-	
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "itemType")
+    private Set<InventoryItem> inventoryItems = new HashSet<InventoryItem>();
+
 	public ItemType() {
 
 	}
-	
+
 	public Integer getId() {
 		return this.type_id;
 	}
@@ -30,7 +35,7 @@ public class ItemType extends BaseOpenmrsData {
 	public void setId(Integer id) {
 		this.type_id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
@@ -38,5 +43,12 @@ public class ItemType extends BaseOpenmrsData {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
+    public Set<InventoryItem> getInventoryItems() {
+        return inventoryItems;
+    }
+
+    public void setInventoryItems(Set<InventoryItem> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
 }

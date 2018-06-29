@@ -25,6 +25,10 @@ public class InventoryItem extends BaseOpenmrsData {
 
     @Column(name = "item_code", length = 30)
 	private String itemCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "type_id")
+    private ItemType itemType;
 	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -63,4 +67,12 @@ public class InventoryItem extends BaseOpenmrsData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
+    public ItemType getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(ItemType itemType) {
+        this.itemType = itemType;
+    }
 }
