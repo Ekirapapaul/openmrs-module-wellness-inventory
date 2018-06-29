@@ -4,12 +4,11 @@ import org.openmrs.BaseOpenmrsData;
 
 import javax.persistence.*;
 
-@Entity(name = "wellnessinventory.ItemType")
+@Entity(name = "ItemType")
 @Table(name = "inventory_item_type")
 public class ItemType extends BaseOpenmrsData {
 	
 	private static final long serialVersionUID = 1L;
-	
 	@Id
 	@GeneratedValue
 	@Column(name = "type_id", nullable = false)
@@ -20,7 +19,7 @@ public class ItemType extends BaseOpenmrsData {
 	private String name;
 	
 	public ItemType() {
-		
+
 	}
 	
 	public Integer getId() {
