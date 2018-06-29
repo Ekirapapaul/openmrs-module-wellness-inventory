@@ -37,7 +37,7 @@ public class ItemTypeServiceImpl extends BaseOpenmrsService implements ItemTypeS
 	}
 	
 	@Override
-	public ItemType getInventoryItem(Integer typeId) {
+	public ItemType getItemType(Integer typeId) {
 		return itemTypeDao.getItemType(typeId);
 	}
 	
@@ -47,7 +47,7 @@ public class ItemTypeServiceImpl extends BaseOpenmrsService implements ItemTypeS
 	}
 	
 	@Override
-	public void purgeInventoryItem(ItemType itemType) {
+	public void purgeItemType(ItemType itemType) {
 		
 	}
 }

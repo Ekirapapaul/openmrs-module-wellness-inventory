@@ -24,7 +24,7 @@ public interface ItemTypeService extends OpenmrsService {
 	 * @return the item with the given id
 	 */
 	@Transactional(readOnly = true)
-	ItemType getInventoryItem(Integer typeId);
+	ItemType getItemType(Integer typeId);
 	
 	/**
 	 * Saves a new or existing inventory item type.
@@ -41,5 +41,5 @@ public interface ItemTypeService extends OpenmrsService {
 	 * @param itemType the item to delete.
 	 */
 	@Transactional
-	void purgeInventoryItem(ItemType itemType);
+	void purgeItemType(ItemType itemType);
 }

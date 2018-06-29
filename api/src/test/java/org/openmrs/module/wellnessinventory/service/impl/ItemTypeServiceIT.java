@@ -47,4 +47,11 @@ public class ItemTypeServiceIT extends BaseModuleContextSensitiveTest {
 		List<ItemType> itemTypes = Context.getService(ItemTypeService.class).getAllItemTypes();
 		Assert.assertEquals(3, itemTypes.size());
 	}
+
+    @Test
+    public void shouldGetItemTypeById(){
+        ItemType itemType = itemTypeService.getItemType(1);
+        Assert.assertEquals(1, (int) itemType.getId());
+        Assert.assertEquals(3, itemType.getInventoryItems().size());
+    }
 }

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
     <inventory_item_type name="Vitamins" type_id="1" uuid="b7d77022-7b82-11e8-8a1c-979b6a81b654"
-               date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
+                         date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
     <inventory_item_type uuid="080eefd0-7b91-11e8-a291-e7ad03f5ee98" creator="1" date_created="2017-07-07 06:20:01"
-               name="Supplement" type_id="3" voided="0"/>
+                         name="Supplement" type_id="3" voided="0"/>
 
-    <inventory_item name="Supplement" item_id="1" description="Supplement item" uuid="a40ca660-7bab-11e8-a723-fbf29ca26bc4"
+    <inventory_item name="Supplement" item_id="1" description="Supplement item"
+                    uuid="a40ca660-7bab-11e8-a723-fbf29ca26bc4"
                     date_created="2017-07-07 06:20:01" voided="0" creator="1" type_id="1"/>
     <inventory_item name="Vitamins" item_id="2" description="Vitamins item" uuid="acbe3710-7bab-11e8-abef-eb37d3bcab52"
                     date_created="2017-07-07 06:20:01" voided="0" creator="1" type_id="1"/>

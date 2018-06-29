@@ -31,4 +31,12 @@ public class ItemTypeDaoImplIT extends BaseModuleContextSensitiveTest {
 		List<ItemType> inventoryItems = itemTypeDao.getAllItemTypes();
 		Assert.assertEquals(2, inventoryItems.size());
 	}
+
+	@Test
+    public void shouldGetItemTypeById(){
+	    ItemType itemType = itemTypeDao.getItemType(1);
+	    Assert.assertEquals(1, (int) itemType.getId());
+	    Assert.assertEquals(3, itemType.getInventoryItems().size());
+    }
+
 }
