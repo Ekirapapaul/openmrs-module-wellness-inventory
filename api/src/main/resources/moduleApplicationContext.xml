@@ -63,6 +63,24 @@
         </property>
     </bean>
 
+    <bean id="wellnessinventory.ItemTypeService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.ItemTypeServiceImpl">
+                <property name="itemTypeDao" ref="itemTypeDaoImpl"/>
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors"/>
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource"/>
+        </property>
+    </bean>
+
     <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
     calling Context.getService(WellnessinventoryService.class)-->
     <bean parent="serviceContext">
@@ -81,38 +99,13 @@
             </list>
         </property>
     </bean>
-
-
-    <!-- Register services
     <bean parent="serviceContext">
         <property name="moduleService">
-            <list merge="true">
-                <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemService</value>
-                <bean id="inventoryItemService"
-                      class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
-                    <property name="transactionManager">
-                        <ref bean="transactionManager"/>
-                    </property>
-                    <property name="target">
-                        <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
-                            <property name="inventoryItemDao">
-                                <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl">
-                                    <property name="sessionFactory">
-                                        <ref bean="sessionFactory"/>
-                                    </property>
-                                </bean>
-                            </property>
-                        </bean>
-                    </property>
-                    <property name="preInterceptors">
-                        <ref bean="serviceInterceptors"/>
-                    </property>
-                    <property name="transactionAttributeSource">
-                        <ref bean="transactionAttributeSource"/>
-                    </property>
-                </bean>
+            <list>
+                <value>org.openmrs.module.wellnessinventory.api.service.ItemTypeService</value>
+                <ref bean="wellnessinventory.ItemTypeService"/>
             </list>
         </property>
     </bean>
-    -->
+
 </beans>

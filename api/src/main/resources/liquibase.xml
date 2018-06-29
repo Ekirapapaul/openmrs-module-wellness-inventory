@@ -55,5 +55,22 @@
             <column name="item_code" type="char(38)"/>
         </createTable>
     </changeSet>
+    <changeSet author="ekirapa" id="wellnessinventory-2018-06-29-2">
+        <preConditions>
+            <not>
+                <tableExists tableName="inventory_item_type"/>
+            </not>
+        </preConditions>
+        <comment>Create inventory item type table</comment>
+        <createTable tableName="inventory_item_type">
+            <column name="type_id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="uuid" type="char(38)"/>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>

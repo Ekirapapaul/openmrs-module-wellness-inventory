@@ -5,4 +5,8 @@
     <inventory_item name="Protein" item_id="3" description="Protein item"/>
     <inventory_item name="Oats" item_id="4" description="Oats item"/>
 
+    <inventory_item_type name="Vitamins" type_id="1" uuid="b7d77022-7b82-11e8-8a1c-979b6a81b654"
+               date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
+    <inventory_item_type uuid="080eefd0-7b91-11e8-a291-e7ad03f5ee98" creator="1" date_created="2017-07-07 06:20:01"
+               name="Supplement" type_id="3" voided="0"/>
 </dataset>

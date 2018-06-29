@@ -5,9 +5,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
-import org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl;
+import org.openmrs.module.wellnessinventory.api.dao.ItemTypeDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,13 +16,10 @@ import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @org.springframework.test.context.ContextConfiguration(locations = { "classpath:TestingApplicationContext.xml" }, inheritLocations = true)
-public class InventoryItemDaoImplIT extends BaseModuleContextSensitiveTest {
+public class ItemTypeDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-	InventoryItemDao itemDao;
-	
-	@Autowired
-	SessionFactory sessionFactory;
+	ItemTypeDao itemTypeDao;
 	
 	@Before
 	public void beforeAllTests() throws Exception {
@@ -31,12 +28,7 @@ public class InventoryItemDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void shouldGetAllItems() {
-		List<InventoryItem> inventoryItems = itemDao.getAllInventoryItems();
-		Assert.assertEquals(4, inventoryItems.size());
-	}
-	
-	@Test
-	public void shouldAddItemTypes() {
-		
+		List<ItemType> inventoryItems = itemTypeDao.getAllItemTypes();
+		Assert.assertEquals(2, inventoryItems.size());
 	}
 }

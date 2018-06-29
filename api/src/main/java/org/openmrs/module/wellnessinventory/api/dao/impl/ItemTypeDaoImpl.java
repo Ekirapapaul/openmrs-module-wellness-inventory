@@ -5,22 +5,23 @@ import org.apache.commons.logging.LogFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
+import org.openmrs.module.wellnessinventory.api.dao.ItemTypeDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Repository
-public class InventoryItemDaoImpl implements InventoryItemDao {
+public class ItemTypeDaoImpl implements ItemTypeDao {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
 	private SessionFactory sessionFactory;
 	
 	@Autowired
-	public InventoryItemDaoImpl(SessionFactory sessionFactory) {
+	public ItemTypeDaoImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
 	
@@ -39,25 +40,25 @@ public class InventoryItemDaoImpl implements InventoryItemDao {
 	}
 	
 	@Override
-	public List<InventoryItem> getAllInventoryItems() {
-		return getSessionFactory().getCurrentSession().createCriteria(InventoryItem.class).list();
+	public List<ItemType> getAllItemTypes() {
+		return getSessionFactory().getCurrentSession().createCriteria(ItemType.class).list();
 	}
 	
 	@Override
-	public InventoryItem getInventoryItem(Integer itemId) {
-		return (InventoryItem) sessionFactory.getCurrentSession().get(InventoryItem.class, itemId);
+	public ItemType getItemType(Integer itemId) {
+		return (ItemType) sessionFactory.getCurrentSession().get(ItemType.class, itemId);
 	}
 	
 	@Override
-	public InventoryItem saveInventoryItem(InventoryItem inventoryItem) {
+	public ItemType saveItemType(ItemType itemType) {
 		Session session = getSessionFactory().getCurrentSession();
-		session.saveOrUpdate(inventoryItem);
+		session.saveOrUpdate(itemType);
 		session.flush();
-		return inventoryItem;
+		return itemType;
 	}
 	
 	@Override
-	public void purgeInventoryItem(InventoryItem inventoryItem) {
-		sessionFactory.getCurrentSession().delete(inventoryItem);
+	public void purgeInventoryItem(ItemType itemType) {
+		sessionFactory.getCurrentSession().delete(itemType);
 	}
 }
