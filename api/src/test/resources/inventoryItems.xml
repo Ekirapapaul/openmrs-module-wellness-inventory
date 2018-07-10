@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataset>
+    <location location_id="1" name="Unknown_Location" description=" 0" creator="1" retired="0" retired_by=" 0"
+              uuid="8d6c993e-c2cc-11de-8d13-0010c6dffd0f" date_created="2005-09-22 00:00:00"/>
+    <inventory_stock_room room_id="1" name="main room" location_id="1" uuid="ff9eec9a-8443-11e8-9c62-77553e188e4d" date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
+
     <inventory_item_type name="Vitamins" type_id="1" uuid="b7d77022-7b82-11e8-8a1c-979b6a81b654"
                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
     <inventory_item_type uuid="080eefd0-7b91-11e8-a291-e7ad03f5ee98" creator="1" date_created="2017-07-07 06:20:01"

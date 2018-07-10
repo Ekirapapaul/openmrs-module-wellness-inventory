@@ -4,14 +4,13 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.wellnessinventory.api.dao.StockRoomDao;
-import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.openmrs.module.wellnessinventory.api.model.StockRoom;
-import org.openmrs.module.wellnessinventory.api.service.StockRoomServiceService;
+import org.openmrs.module.wellnessinventory.api.service.StockRoomService;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public class StockRoomServiceImpl extends BaseOpenmrsService implements StockRoomServiceService {
+public class StockRoomServiceImpl extends BaseOpenmrsService implements StockRoomService {
 
     protected final Log log = LogFactory.getLog(this.getClass());
 

@@ -6,7 +6,7 @@ import org.openmrs.module.wellnessinventory.api.model.StockRoom;
 
 import java.util.List;
 
-public interface StockRoomServiceService extends OpenmrsService {
+public interface StockRoomService extends OpenmrsService {
 	
 	/**
 	 * Gets a list of stock rooms.
