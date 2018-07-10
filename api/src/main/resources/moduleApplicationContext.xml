@@ -79,6 +79,23 @@
             <ref bean="transactionAttributeSource"/>
         </property>
     </bean>
+    <bean id="stockRoomService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.StockRoomServiceImpl">
+                <property name="stockRoomDao" ref="stockRoomDaoImpl"/>
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors"/>
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource"/>
+        </property>
+    </bean>
     <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
     calling Context.getService(WellnessinventoryService.class)-->
     <bean parent="serviceContext">
@@ -102,6 +119,14 @@
             <list merge="true">
                 <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemTypeService</value>
                 <ref bean="inventoryItemTypeService"/>
+            </list>
+        </property>
+    </bean>
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list merge="true">
+                <value>org.openmrs.module.wellnessinventory.api.service.StockRoomServiceService</value>
+                <ref bean="stockRoomService"/>
             </list>
         </property>
     </bean>

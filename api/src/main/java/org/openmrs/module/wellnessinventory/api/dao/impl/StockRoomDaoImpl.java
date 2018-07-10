@@ -8,10 +8,12 @@ import org.openmrs.module.wellnessinventory.api.dao.StockRoomDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.module.wellnessinventory.api.model.StockRoom;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Repository
 public class StockRoomDaoImpl implements StockRoomDao {
     protected final Log log = LogFactory.getLog(this.getClass());
 
@@ -21,6 +23,7 @@ public class StockRoomDaoImpl implements StockRoomDao {
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
+
     @Override
     @Transactional(readOnly = true)
     public List<StockRoom> getAllStockRooms() {
