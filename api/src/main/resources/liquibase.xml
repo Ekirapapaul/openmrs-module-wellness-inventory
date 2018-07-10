@@ -14,50 +14,53 @@
     -->
 
     <!-- Uncomment the changeset below if you want to make the Item class persistable, see also Item and WellnessinventoryDaoTest -->
-   <changeSet id="wellnessinventory-2016-08-02-12-21" author="ekirapa">
-       <preConditions onFail="MARK_RAN">
-           <not><tableExists tableName="wellnessinventory_item"/></not>
-       </preConditions>
-       <comment>
-           Creating the wellnessinventory_item table
-       </comment>
-       <createTable tableName="wellnessinventory_item">
-           <column name="wellnessinventory_item_id" type="int" autoIncrement="true">
-               <constraints primaryKey="true" nullable="false"/>
-           </column>
-           <column name="uuid" type="char(38)">
-               <constraints nullable="false" unique="true"></constraints>
-           </column>
-           <column name="owner" type="int" />
-           <column name="description" type="varchar(255)" />
-           <column name="creator" type="int">
-               <constraints nullable="true"/>
-           </column>
-           <column name="date_created" type="datetime">
-               <constraints nullable="true"/>
-           </column>
-           <column name="changed_by" type="int">
-               <constraints nullable="true"/>
-           </column>
-           <column name="date_changed" type="datetime">
-               <constraints nullable="true"/>
-           </column>
-           <column name="voided" type="tinyint(1)" defaultValue="0">
-               <constraints nullable="false"/>
-           </column>
-           <column name="voided_by" type="int">
-               <constraints nullable="true"/>
-           </column>
-           <column name="date_voided" type="datetime">
-               <constraints nullable="true"/>
-           </column>
-           <column name="void_reason" type="varchar(255)">
-               <constraints nullable="true"/>
-           </column>
-       </createTable>
-       <addForeignKeyConstraint constraintName="wellnessinventory_item_owner_fk" baseTableName="wellnessinventory_item" baseColumnNames="owner"  referencedTableName="users"
-                                referencedColumnNames="user_id" />
-   </changeSet>
+    <changeSet id="wellnessinventory-2016-08-02-12-21" author="ekirapa">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="wellnessinventory_item"/>
+            </not>
+        </preConditions>
+        <comment>
+            Creating the wellnessinventory_item table
+        </comment>
+        <createTable tableName="wellnessinventory_item">
+            <column name="wellnessinventory_item_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" unique="true"></constraints>
+            </column>
+            <column name="owner" type="int"/>
+            <column name="description" type="varchar(255)"/>
+            <column name="creator" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="wellnessinventory_item_owner_fk" baseTableName="wellnessinventory_item"
+                                 baseColumnNames="owner" referencedTableName="users"
+                                 referencedColumnNames="user_id"/>
+    </changeSet>
     <changeSet author="ekirapa" id="wellnessinventory-2018-06-18-1">
         <preConditions onFail="MARK_RAN">
             <not>
@@ -155,6 +158,52 @@
             <column name="name">Unknown Type</column>
             <column name="uuid">474041d0-7f70-11e8-9c15-b78359634b47</column>
         </insert>
+    </changeSet>
+    <changeSet author="ekirapa" id="wellnessinventory-2018-07-10-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="inventory_stock_room"/>
+            </not>
+        </preConditions>
+        <comment>Create inventory item type table</comment>
+        <createTable tableName="inventory_item_type">
+            <column name="room_id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="location_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="creator" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
     </changeSet>
 
 </databaseChangeLog>
