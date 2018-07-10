@@ -17,46 +17,40 @@ public class InventoryItemDaoImpl implements InventoryItemDao {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
-	private SessionFactory sessionFactory;
-	
 	@Autowired
-	public InventoryItemDaoImpl(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
+	SessionFactory sessionFactory;
 	
-	/**
-	 * @param sessionFactory the sessionFactory to set
-	 */
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
+	public InventoryItemDaoImpl() {
 	}
 	
 	/**
 	 * @return the sessionFactory
 	 */
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
+	private org.hibernate.classic.Session getSession() {
+		return sessionFactory.getCurrentSession();
 	}
 	
 	@Override
+	@Transactional(readOnly = true)
 	public List<InventoryItem> getAllInventoryItems() {
-		return getSessionFactory().getCurrentSession().createCriteria(InventoryItem.class).list();
+		return getSession().createCriteria(InventoryItem.class).list();
 	}
 	
 	@Override
+	@Transactional(readOnly = true)
 	public InventoryItem getInventoryItem(Integer itemId) {
-		return (InventoryItem) sessionFactory.getCurrentSession().get(InventoryItem.class, itemId);
+		return (InventoryItem) getSession().get(InventoryItem.class, itemId);
 	}
 	
 	@Override
+	@Transactional
 	public InventoryItem saveInventoryItem(InventoryItem inventoryItem) {
-		Session session = getSessionFactory().getCurrentSession();
-		session.saveOrUpdate(inventoryItem);
-		session.flush();
+		getSession().saveOrUpdate(inventoryItem);
 		return inventoryItem;
 	}
 	
 	@Override
+	@Transactional
 	public void purgeInventoryItem(InventoryItem inventoryItem) {
 		sessionFactory.getCurrentSession().delete(inventoryItem);
 	}

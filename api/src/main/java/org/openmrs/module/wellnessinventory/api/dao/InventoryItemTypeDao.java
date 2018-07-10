@@ -5,7 +5,7 @@ import org.openmrs.module.wellnessinventory.api.model.ItemType;
 
 import java.util.List;
 
-public interface ItemTypeDao {
+public interface InventoryItemTypeDao {
 	
 	public List<ItemType> getAllItemTypes();
 	
@@ -13,5 +13,5 @@ public interface ItemTypeDao {
 	
 	ItemType saveItemType(ItemType itemType);
 	
-	void purgeInventoryItem(ItemType itemType);
+	void purgeInventoryType(ItemType itemType);
 }

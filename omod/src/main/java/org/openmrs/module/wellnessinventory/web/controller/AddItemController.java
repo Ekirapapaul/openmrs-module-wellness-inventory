@@ -5,7 +5,7 @@ import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.context.Context;
 import org.openmrs.messagesource.MessageSourceService;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
-import org.openmrs.module.wellnessinventory.api.service.InventoryItemService;
+import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.openmrs.web.WebConstants;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -28,7 +28,7 @@ public class AddItemController {
 	
 	@RequestMapping(value = "module/wellnessinventory/wellnessinventory.form", method = RequestMethod.GET)
 	public void items(ModelMap model) throws IOException {
-		InventoryItemService itemService = Context.getService(InventoryItemService.class);
+		InventoryService itemService = Context.getService(InventoryService.class);
 		List<InventoryItem> inventoryItems = itemService.getAllInventoryItems();
 		model.addAttribute("modelBase", "openhmis.inventory.item");
 	}
@@ -39,7 +39,7 @@ public class AddItemController {
 	        @ModelAttribute("inventoryitem") InventoryItem inventoryItem, BindingResult errors) {
 		
 		MessageSourceService mss = Context.getMessageSourceService();
-		InventoryItemService itemService = Context.getService(InventoryItemService.class);
+		InventoryService itemService = Context.getService(InventoryService.class);
 		if (!Context.isAuthenticated()) {
 			errors.reject("inventory.auth.required");
 		} else if (mss.getMessage("inventory.purgeDepartment").equals(action)) {

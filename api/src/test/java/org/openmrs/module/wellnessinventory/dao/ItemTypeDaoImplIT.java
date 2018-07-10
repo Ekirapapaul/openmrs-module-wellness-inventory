@@ -1,12 +1,10 @@
 package org.openmrs.module.wellnessinventory.dao;
 
-import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.openmrs.module.wellnessinventory.api.dao.ItemTypeDao;
-import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.dao.InventoryItemTypeDao;
 import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +17,7 @@ import java.util.List;
 public class ItemTypeDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-	ItemTypeDao itemTypeDao;
+	InventoryItemTypeDao itemTypeDao;
 	
 	@Before
 	public void beforeAllTests() throws Exception {
@@ -31,12 +29,12 @@ public class ItemTypeDaoImplIT extends BaseModuleContextSensitiveTest {
 		List<ItemType> inventoryItems = itemTypeDao.getAllItemTypes();
 		Assert.assertEquals(2, inventoryItems.size());
 	}
-
-	@Test
-    public void shouldGetItemTypeById(){
-	    ItemType itemType = itemTypeDao.getItemType(1);
-	    Assert.assertEquals(1, (int) itemType.getId());
-	    Assert.assertEquals(3, itemType.getInventoryItems().size());
-    }
-
+	
+	//	@Test
+	//	public void shouldGetItemTypeById() {
+	//		ItemType itemType = itemTypeDao.getItemType(1);
+	//		Assert.assertEquals(1, (int) itemType.getId());
+	//		Assert.assertEquals(3, itemType.getInventoryItems().size());
+	//	}
+	
 }

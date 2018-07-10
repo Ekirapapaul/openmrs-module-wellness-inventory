@@ -3,45 +3,53 @@ package org.openmrs.module.wellnessinventory.service.impl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.openmrs.api.context.Context;
-import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
-import org.openmrs.module.wellnessinventory.api.service.InventoryItemService;
+import org.openmrs.module.wellnessinventory.api.model.ItemType;
+import org.openmrs.module.wellnessinventory.api.service.InventoryItemTypeService;
+import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Date;
 import java.util.List;
 
 import static org.mockito.Mockito.verify;
 
 public class InventoryServiceImplIT extends BaseModuleContextSensitiveTest {
 	
-	@Autowired
-	private InventoryItemService itemService;
+	private InventoryItemTypeService itemService;
 	
 	@Before
 	public void before() throws Exception {
 		executeDataSet("inventoryItems.xml");
+		itemService = Context.getService(InventoryItemTypeService.class);
 	}
 	
 	@Test
-	public void testGetAllItems() throws Exception {
-		List<InventoryItem> items = itemService.getAllInventoryItems();
-		Assert.assertEquals(4, items.size());
+	public void testGetAllItemTypess() throws Exception {
+		List<ItemType> items = itemService.getAllItemTypes();
+		Assert.assertEquals(2, items.size());
 	}
 	
 	@Test
-	public void shouldSaveItem() {
-		InventoryItem inventoryItem = new InventoryItem();
-		inventoryItem.setName("new");
-		inventoryItem.setItemCode("4545");
-		inventoryItem.setDescription("description");
-		InventoryItem savedItem = itemService.saveInventoryItem(inventoryItem);
-		Assert.assertNotNull(savedItem);
-		Assert.assertEquals(inventoryItem, savedItem);
+	public void shouldSaveItemType() {
+		ItemType itemType = new ItemType();
+		itemType.setName("new");
+		itemType.setUuid("f08c3ff4-7b8e-11e8-b051-9ff718629e8a");
+		itemType.setCreator(Context.getAuthenticatedUser());
+		itemType.setDateCreated(new Date());
+		ItemType itsavedItem = itemService.saveItemType(itemType);
+		//        Assert.assertNotNull(itsavedItem);
+		Assert.assertEquals(itemType, itsavedItem);
 		
-		List<InventoryItem> items = Context.getService(InventoryItemService.class).getAllInventoryItems();
-		Assert.assertEquals(5, items.size());
+		List<ItemType> itemTypes = Context.getService(InventoryItemTypeService.class).getAllItemTypes();
+		Assert.assertEquals(3, itemTypes.size());
+	}
+	
+	@Test
+	public void shouldGetItemTypeById() {
+		ItemType itemType = itemService.getItemType(1);
+		Assert.assertEquals(1, (int) itemType.getId());
+		Assert.assertEquals(2, itemType.getInventoryItems().size());
 	}
 }

@@ -14,7 +14,6 @@
     -->
 
     <!-- Uncomment the changeset below if you want to make the Item class persistable, see also Item and WellnessinventoryDaoTest -->
-    <!--
    <changeSet id="wellnessinventory-2016-08-02-12-21" author="ekirapa">
        <preConditions onFail="MARK_RAN">
            <not><tableExists tableName="wellnessinventory_item"/></not>
@@ -31,13 +30,36 @@
            </column>
            <column name="owner" type="int" />
            <column name="description" type="varchar(255)" />
+           <column name="creator" type="int">
+               <constraints nullable="true"/>
+           </column>
+           <column name="date_created" type="datetime">
+               <constraints nullable="true"/>
+           </column>
+           <column name="changed_by" type="int">
+               <constraints nullable="true"/>
+           </column>
+           <column name="date_changed" type="datetime">
+               <constraints nullable="true"/>
+           </column>
+           <column name="voided" type="tinyint(1)" defaultValue="0">
+               <constraints nullable="false"/>
+           </column>
+           <column name="voided_by" type="int">
+               <constraints nullable="true"/>
+           </column>
+           <column name="date_voided" type="datetime">
+               <constraints nullable="true"/>
+           </column>
+           <column name="void_reason" type="varchar(255)">
+               <constraints nullable="true"/>
+           </column>
        </createTable>
        <addForeignKeyConstraint constraintName="wellnessinventory_item_owner_fk" baseTableName="wellnessinventory_item" baseColumnNames="owner"  referencedTableName="users"
                                 referencedColumnNames="user_id" />
    </changeSet>
-   -->
     <changeSet author="ekirapa" id="wellnessinventory-2018-06-18-1">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="inventory_item"/>
             </not>
@@ -47,16 +69,43 @@
             <column name="item_id" autoIncrement="true" type="int">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
+            <column name="type_id" type="int">
+                <constraints nullable="true"/>
+            </column>
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
             <column name="description" type="varchar(255)"/>
-            <column name="uuid" type="char(38)"/>
-            <column name="item_code" type="char(38)"/>
+            <column name="uuid" type="varchar(38)"/>
+            <column name="item_code" type="varchar(38)"/>
+            <column name="creator" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
         </createTable>
     </changeSet>
     <changeSet author="ekirapa" id="wellnessinventory-2018-06-29-2">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="inventory_item_type"/>
             </not>
@@ -69,8 +118,43 @@
             <column name="name" type="varchar(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="uuid" type="char(38)"/>
+            <column name="creator" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" unique="true"/>
+            </column>
         </createTable>
+    </changeSet>
+    <changeSet author="ekirapa" id="wellnessinventory-2018-07-04-2">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="inventory_item_type"/>
+        </preConditions>
+        <insert tableName="inventory_item_type">
+            <column name="name">Unknown Type</column>
+            <column name="uuid">474041d0-7f70-11e8-9c15-b78359634b47</column>
+        </insert>
     </changeSet>
 
 </databaseChangeLog>

@@ -44,8 +44,7 @@
             <ref bean="transactionAttributeSource"/>
         </property>
     </bean>
-
-    <bean id="wellnessinventory.InventoryItemService"
+    <bean id="inventoryService"
           class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="transactionManager">
             <ref bean="transactionManager"/>
@@ -63,14 +62,14 @@
         </property>
     </bean>
 
-    <bean id="wellnessinventory.ItemTypeService"
+    <bean id="inventoryItemTypeService"
           class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="transactionManager">
             <ref bean="transactionManager"/>
         </property>
         <property name="target">
-            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.ItemTypeServiceImpl">
-                <property name="itemTypeDao" ref="itemTypeDaoImpl"/>
+            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryItemTypeServiceImpl">
+                <property name="itemTypeDao" ref="inventoryItemTypeDaoImpl"/>
             </bean>
         </property>
         <property name="preInterceptors">
@@ -80,7 +79,6 @@
             <ref bean="transactionAttributeSource"/>
         </property>
     </bean>
-
     <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
     calling Context.getService(WellnessinventoryService.class)-->
     <bean parent="serviceContext">
@@ -93,17 +91,17 @@
     </bean>
     <bean parent="serviceContext">
         <property name="moduleService">
-            <list>
-                <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemService</value>
-                <ref bean="wellnessinventory.InventoryItemService"/>
+            <list merge="true">
+                <value>org.openmrs.module.wellnessinventory.api.service.InventoryService</value>
+                <ref bean="inventoryService"/>
             </list>
         </property>
     </bean>
     <bean parent="serviceContext">
         <property name="moduleService">
-            <list>
-                <value>org.openmrs.module.wellnessinventory.api.service.ItemTypeService</value>
-                <ref bean="wellnessinventory.ItemTypeService"/>
+            <list merge="true">
+                <value>org.openmrs.module.wellnessinventory.api.service.InventoryItemTypeService</value>
+                <ref bean="inventoryItemTypeService"/>
             </list>
         </property>
     </bean>

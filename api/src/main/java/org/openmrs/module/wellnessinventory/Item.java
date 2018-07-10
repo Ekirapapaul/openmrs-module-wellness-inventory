@@ -35,7 +35,7 @@ public class Item extends BaseOpenmrsData {
 	private Integer id;
 	
 	@ManyToOne
-	@JoinColumn(name = "owner")
+	@JoinColumn(name = "owner", nullable = true)
 	private User owner;
 	
 	@Basic

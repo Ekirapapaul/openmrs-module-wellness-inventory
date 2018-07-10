@@ -2,18 +2,18 @@ package org.openmrs.module.wellnessinventory.api.service;
 
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface InventoryItemService extends OpenmrsService {
+public interface InventoryService extends OpenmrsService {
 	
 	/**
 	 * Gets a list of inventory items.
 	 * 
 	 * @return the inventory items list.
 	 */
-	@Transactional(readOnly = true)
 	List<InventoryItem> getAllInventoryItems();
 	
 	/**
@@ -22,7 +22,6 @@ public interface InventoryItemService extends OpenmrsService {
 	 * @param itemId the inventory item id
 	 * @return the item with the given id
 	 */
-	@Transactional(readOnly = true)
 	InventoryItem getInventoryItem(Integer itemId);
 	
 	/**
@@ -31,7 +30,6 @@ public interface InventoryItemService extends OpenmrsService {
 	 * @param inventoryItem the item to save.
 	 * @return the saved inventory item.
 	 */
-	@Transactional
 	InventoryItem saveInventoryItem(InventoryItem inventoryItem);
 	
 	/**
@@ -39,6 +37,5 @@ public interface InventoryItemService extends OpenmrsService {
 	 * 
 	 * @param inventoryItem the item to delete.
 	 */
-	@Transactional
 	void purgeInventoryItem(InventoryItem inventoryItem);
 }

@@ -16,7 +16,7 @@
             <dependency>
                 <groupId>org.openmrs.api</groupId>
                 <artifactId>openmrs-api</artifactId>
-                <version>${openMRSVersion}</version>
+                <version>${openmrsPlatformVersion}</version>
                 <type>test-jar</type>
                 <scope>test</scope>
             </dependency>
@@ -36,12 +36,6 @@
                 <artifactId>openmrs-web</artifactId>
                 <scope>test</scope>
                 <type>test-jar</type>
-            </dependency>
-            <dependency>
-                <groupId>javax.servlet</groupId>
-                <artifactId>javax.servlet-api</artifactId>
-                <version>${javaxServletVersion}</version>
-                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -7,14 +7,13 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-public interface ItemTypeService extends OpenmrsService {
+public interface InventoryItemTypeService extends OpenmrsService {
 	
 	/**
 	 * Gets a list of ite types.
 	 * 
 	 * @return the inventory items list.
 	 */
-	@Transactional(readOnly = true)
 	List<ItemType> getAllItemTypes();
 	
 	/**
@@ -23,7 +22,6 @@ public interface ItemTypeService extends OpenmrsService {
 	 * @param typeId the item type id
 	 * @return the item with the given id
 	 */
-	@Transactional(readOnly = true)
 	ItemType getItemType(Integer typeId);
 	
 	/**
@@ -32,7 +30,6 @@ public interface ItemTypeService extends OpenmrsService {
 	 * @param itemType the item type to save.
 	 * @return the saved inventory item type.
 	 */
-	@Transactional
 	ItemType saveItemType(ItemType itemType);
 	
 	/**
@@ -40,6 +37,5 @@ public interface ItemTypeService extends OpenmrsService {
 	 * 
 	 * @param itemType the item to delete.
 	 */
-	@Transactional
 	void purgeItemType(ItemType itemType);
 }

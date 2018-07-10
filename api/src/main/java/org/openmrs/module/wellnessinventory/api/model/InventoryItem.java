@@ -11,24 +11,24 @@ import java.io.Serializable;
 public class InventoryItem extends BaseOpenmrsData {
 	
 	private static final long serialVersionUID = 1L;
-
-    @Id
-    @GeneratedValue
-    @Column(name = "item_id", nullable = false)
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "item_id", nullable = false)
 	private Integer id;
-
-    @Column(name = "name", length = 30, nullable = false)
+	
+	@Column(name = "name", length = 30, nullable = false)
 	private String name;
-
-    @Column(name = "description")
+	
+	@Column(name = "description")
 	private String description;
-
-    @Column(name = "item_code", length = 30)
+	
+	@Column(name = "item_code", length = 30)
 	private String itemCode;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "type_id")
-    private ItemType itemType;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "type_id")
+	private ItemType itemType;
 	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -67,12 +67,12 @@ public class InventoryItem extends BaseOpenmrsData {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
-    }
+	
+	public ItemType getItemType() {
+		return itemType;
+	}
+	
+	public void setItemType(ItemType itemType) {
+		this.itemType = itemType;
+	}
 }
