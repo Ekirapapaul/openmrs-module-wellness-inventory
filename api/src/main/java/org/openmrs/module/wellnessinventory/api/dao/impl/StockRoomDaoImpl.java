@@ -15,38 +15,38 @@ import java.util.List;
 
 @Repository
 public class StockRoomDaoImpl implements StockRoomDao {
-
-    protected final Log log = LogFactory.getLog(this.getClass());
-
-    @Autowired
-    SessionFactory sessionFactory;
-
-    private Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<StockRoom> getAllStockRooms() {
-        return getSession().createCriteria(StockRoom.class).list();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public StockRoom getStockRoom(Integer id) {
-        return (StockRoom) getSession().get(StockRoom.class, id);
-    }
-
-    @Override
-    @Transactional
-    public StockRoom saveStockRoom(StockRoom stockRoom) {
-        getSession().saveOrUpdate(stockRoom);
-        return stockRoom;
-    }
-
-    @Override
-    @Transactional
-    public void purgeStockRoom(StockRoom stockRoom) {
-        sessionFactory.getCurrentSession().delete(stockRoom);
-    }
+	
+	protected final Log log = LogFactory.getLog(this.getClass());
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	private Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<StockRoom> getAllStockRooms() {
+		return getSession().createCriteria(StockRoom.class).list();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public StockRoom getStockRoom(Integer id) {
+		return (StockRoom) getSession().get(StockRoom.class, id);
+	}
+	
+	@Override
+	@Transactional
+	public StockRoom saveStockRoom(StockRoom stockRoom) {
+		getSession().saveOrUpdate(stockRoom);
+		return stockRoom;
+	}
+	
+	@Override
+	@Transactional
+	public void purgeStockRoom(StockRoom stockRoom) {
+		sessionFactory.getCurrentSession().delete(stockRoom);
+	}
 }

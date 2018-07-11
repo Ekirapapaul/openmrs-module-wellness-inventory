@@ -14,43 +14,43 @@ import java.util.List;
 
 @Repository
 public class StockDetailsDaoImpl implements StockDetailsDao {
-
-    @Autowired
-    SessionFactory sessionFactory;
-
-    public StockDetailsDaoImpl() {
-
-    }
-
-    /**
-     * @return the sessionFactory
-     */
-    private Session getSession() {
-        return sessionFactory.getCurrentSession();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public List<ItemStockDetails> getAllStockDetails() {
-        return getSession().createCriteria(ItemStockDetails.class).list();
-    }
-
-    @Override
-    @Transactional(readOnly = true)
-    public ItemStockDetails getStockDetails(Integer id) {
-        return (ItemStockDetails) getSession().get(ItemStockDetails.class, id);
-    }
-
-    @Override
-    @Transactional
-    public ItemStockDetails saveStockDetails(ItemStockDetails stockDetails) {
-        getSession().saveOrUpdate(stockDetails);
-        return stockDetails;
-    }
-
-    @Override
-    @Transactional
-    public void purgeStockDetails(ItemStockDetails stockDetails) {
-
-    }
+	
+	@Autowired
+	SessionFactory sessionFactory;
+	
+	public StockDetailsDaoImpl() {
+		
+	}
+	
+	/**
+	 * @return the sessionFactory
+	 */
+	private Session getSession() {
+		return sessionFactory.getCurrentSession();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<ItemStockDetails> getAllStockDetails() {
+		return getSession().createCriteria(ItemStockDetails.class).list();
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public ItemStockDetails getStockDetails(Integer id) {
+		return (ItemStockDetails) getSession().get(ItemStockDetails.class, id);
+	}
+	
+	@Override
+	@Transactional
+	public ItemStockDetails saveStockDetails(ItemStockDetails stockDetails) {
+		getSession().saveOrUpdate(stockDetails);
+		return stockDetails;
+	}
+	
+	@Override
+	@Transactional
+	public void purgeStockDetails(ItemStockDetails stockDetails) {
+		
+	}
 }

@@ -169,7 +169,7 @@
             </not>
         </preConditions>
         <comment>Create inventory stock room</comment>
-        <createTable tableName="inventory_item_type">
+        <createTable tableName="inventory_stock_room">
             <column name="room_id" autoIncrement="true" type="int">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
