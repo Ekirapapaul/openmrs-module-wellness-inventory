@@ -38,7 +38,7 @@ public class ItemStockDetails extends BaseOpenmrsData {
 
     @Override
     public void setId(Integer id) {
-        this.id= id;
+        this.id = id;
     }
 
     public int getQuantity() {

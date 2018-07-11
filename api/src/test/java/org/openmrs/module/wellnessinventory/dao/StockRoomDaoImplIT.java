@@ -19,7 +19,7 @@ import java.util.List;
 public class StockRoomDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
-    StockRoomDao stockRoomDao;
+	StockRoomDao stockRoomDao;
 	
 	@Before
 	public void beforeAllTests() throws Exception {

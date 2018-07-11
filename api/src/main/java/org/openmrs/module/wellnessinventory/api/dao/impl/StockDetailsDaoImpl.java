@@ -48,7 +48,6 @@ public class StockDetailsDaoImpl implements StockDetailsDao {
         return stockDetails;
     }
 
-
     @Override
     @Transactional
     public void purgeStockDetails(ItemStockDetails stockDetails) {

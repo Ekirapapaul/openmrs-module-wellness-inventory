@@ -15,7 +15,7 @@ public class ItemStock extends BaseOpenmrsData {
     @Column(name = "stock_id", nullable = false)
     private Integer id;
 
-    @Column(name = "quantity",nullable = false)
+    @Column(name = "quantity", nullable = false)
     private int quantity = 0;
 
     @Override

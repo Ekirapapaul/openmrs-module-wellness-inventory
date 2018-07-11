@@ -40,7 +40,7 @@ public class StockDetailsDaoImplIT extends BaseModuleContextSensitiveTest {
     }
 
     @Test
-    public void shuldSaveSockDetail(){
+    public void shuldSaveSockDetail() {
         ItemStockDetails stockDetail = new ItemStockDetails();
         stockDetail.setName("TRIAL");
         stockDetail.setExpiration(new Date());

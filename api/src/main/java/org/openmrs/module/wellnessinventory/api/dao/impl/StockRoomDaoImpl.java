@@ -15,6 +15,7 @@ import java.util.List;
 
 @Repository
 public class StockRoomDaoImpl implements StockRoomDao {
+
     protected final Log log = LogFactory.getLog(this.getClass());
 
     @Autowired

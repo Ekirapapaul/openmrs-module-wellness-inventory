@@ -20,7 +20,7 @@ public class StockRoomServiceImplIT extends BaseModuleContextSensitiveTest {
 	@Before
 	public void before() throws Exception {
 		executeDataSet("inventoryItems.xml");
-        stockRoomService = Context.getService(StockRoomService.class);
+		stockRoomService = Context.getService(StockRoomService.class);
 	}
 	
 	@Test
@@ -33,10 +33,10 @@ public class StockRoomServiceImplIT extends BaseModuleContextSensitiveTest {
 	public void shouldSaveStockRoom() {
 		StockRoom stockRoom = new StockRoom();
 		stockRoom.setName("Main room");
-
-        Location location = Context.getLocationService().getLocation(1);
-        stockRoom.setLocation(location);
-
+		
+		Location location = Context.getLocationService().getLocation(1);
+		stockRoom.setLocation(location);
+		
 		StockRoom savedItem = stockRoomService.saveItemType(stockRoom);
 		Assert.assertNotNull(savedItem);
 		Assert.assertEquals(stockRoom, savedItem);
