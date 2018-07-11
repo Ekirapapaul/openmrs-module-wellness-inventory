@@ -4,7 +4,9 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
+import org.openmrs.module.wellnessinventory.api.dao.StockDetailsDao;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemStockDetails;
 import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,6 +17,8 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
 	private InventoryItemDao inventoryItemDao;
+
+	private StockDetailsDao stockDetailsDao;
 	
 	/**
 	 * @param inventoryItemDao the dao to set
@@ -29,8 +33,16 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	public InventoryItemDao getDao() {
 		return this.inventoryItemDao;
 	}
-	
-	/**
+
+    public StockDetailsDao getStockDetailsDao() {
+        return stockDetailsDao;
+    }
+
+    public void setStockDetailsDao(StockDetailsDao stockDetailsDao) {
+        this.stockDetailsDao = stockDetailsDao;
+    }
+
+    /**
 	 * @see InventoryService#getAllInventoryItems()
 	 */
 	@Override
@@ -61,5 +73,15 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	public void purgeInventoryItem(InventoryItem inventoryItem) {
 		inventoryItemDao.purgeInventoryItem(inventoryItem);
 	}
-	
+
+    @Override
+    public List<ItemStockDetails> getStockDetais(InventoryItem inventoryItem) {
+        return null;
+    }
+
+    @Override
+    public List<ItemStockDetails> getStockDetais(Integer itemId) {
+        return null;
+    }
+
 }

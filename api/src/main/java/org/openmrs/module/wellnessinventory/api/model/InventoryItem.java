@@ -5,6 +5,8 @@ import org.openmrs.BaseOpenmrsObject;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "InventoryItem")
 @Table(name = "inventory_item")
@@ -30,9 +32,9 @@ public class InventoryItem extends BaseOpenmrsData {
 	@JoinColumn(name = "type_id")
 	private ItemType itemType;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "detail_id")
-    private ItemStockDetails details;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "inventoryItem")
+    private Set<ItemStockDetails> details = new HashSet<ItemStockDetails>();
 
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -80,11 +82,4 @@ public class InventoryItem extends BaseOpenmrsData {
 		this.itemType = itemType;
 	}
 
-    public ItemStockDetails getDetails() {
-        return details;
-    }
-
-    public void setDetails(ItemStockDetails details) {
-        this.details = details;
-    }
 }

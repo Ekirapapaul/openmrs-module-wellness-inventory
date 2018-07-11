@@ -18,8 +18,9 @@ public class ItemStockDetails extends BaseOpenmrsData {
     @Column(name = "detail_id", nullable = false)
     private Integer id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "details")
-    private Set<InventoryItem> inventoryItems = new HashSet<InventoryItem>();
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "item_id")
+    private InventoryItem inventoryItem;
 
     @Column(name = "quantity", nullable = false)
     private int quantity = 0;
@@ -64,11 +65,11 @@ public class ItemStockDetails extends BaseOpenmrsData {
         this.expiration = expiration;
     }
 
-    public Set<InventoryItem> getInventoryItems() {
-        return inventoryItems;
+    public InventoryItem getInventoryItem() {
+        return inventoryItem;
     }
 
-    public void setInventoryItems(Set<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+    public void setInventoryItem(InventoryItem inventoryItem) {
+        this.inventoryItem = inventoryItem;
     }
 }
