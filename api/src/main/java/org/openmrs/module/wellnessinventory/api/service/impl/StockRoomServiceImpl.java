@@ -45,6 +45,6 @@ public class StockRoomServiceImpl extends BaseOpenmrsService implements StockRoo
     @Override
     @Transactional
     public void purgeItemType(StockRoom stockRoom) {
-stockRoomDao.purgeStockRoom(stockRoom);
+        stockRoomDao.purgeStockRoom(stockRoom);
     }
 }

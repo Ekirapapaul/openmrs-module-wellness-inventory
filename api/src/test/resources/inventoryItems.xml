@@ -2,7 +2,8 @@
 <dataset>
     <location location_id="1" name="Unknown_Location" description=" 0" creator="1" retired="0" retired_by=" 0"
               uuid="8d6c993e-c2cc-11de-8d13-0010c6dffd0f" date_created="2005-09-22 00:00:00"/>
-    <inventory_stock_room room_id="1" name="main room" location_id="1" uuid="ff9eec9a-8443-11e8-9c62-77553e188e4d" date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
+    <inventory_stock_room room_id="1" name="main room" location_id="1" uuid="ff9eec9a-8443-11e8-9c62-77553e188e4d"
+                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 
     <inventory_item_type name="Vitamins" type_id="1" uuid="b7d77022-7b82-11e8-8a1c-979b6a81b654"
                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
@@ -18,4 +19,8 @@
                     date_created="2017-07-07 06:20:01" voided="0" creator="1" type_id="3"/>
     <inventory_item name="Oats" item_id="4" description="Oats item" uuid="bf465d7c-7bab-11e8-9571-7715c56745ff"
                     date_created="2017-07-07 06:20:01" voided="0" creator="1" type_id="1"/>
+
+    <inventory_stock_details detail_id="1" item_id="1" quantity="2" name="Supplemnt stock"
+                             expiration="2017-07-07 06:20:01" uuid="9411c3f2-84e9-11e8-a920-e3038eaea0fe"
+                             date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 </dataset>

@@ -15,7 +15,6 @@ import java.util.List;
 @Repository
 public class StockDetailsDaoImpl implements StockDetailsDao {
 
-
     @Autowired
     SessionFactory sessionFactory;
 
@@ -33,7 +32,7 @@ public class StockDetailsDaoImpl implements StockDetailsDao {
     @Override
     @Transactional(readOnly = true)
     public List<ItemStockDetails> getAllStockDetails() {
-        return null;
+        return getSession().createCriteria(ItemStockDetails.class).list();
     }
 
     @Override
@@ -43,6 +42,7 @@ public class StockDetailsDaoImpl implements StockDetailsDao {
     }
 
     @Override
+    @Transactional
     public ItemStockDetails saveStockDetails(ItemStockDetails stockDetails) {
         getSession().saveOrUpdate(stockDetails);
         return stockDetails;

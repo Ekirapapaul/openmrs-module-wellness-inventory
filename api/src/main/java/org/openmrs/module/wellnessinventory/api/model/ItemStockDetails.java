@@ -33,12 +33,12 @@ public class ItemStockDetails extends BaseOpenmrsData {
 
     @Override
     public Integer getId() {
-        return null;
+        return this.id;
     }
 
     @Override
     public void setId(Integer id) {
-
+        this.id= id;
     }
 
     public int getQuantity() {

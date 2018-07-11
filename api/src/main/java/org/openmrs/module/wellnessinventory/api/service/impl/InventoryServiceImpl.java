@@ -72,17 +72,19 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	}
 
 	@Override
+    @Transactional(readOnly = true)
 	public void purgeInventoryItem(InventoryItem inventoryItem) {
 		inventoryItemDao.purgeInventoryItem(inventoryItem);
 	}
 
     @Override
-    public Set<ItemStockDetails> getStockDetais(InventoryItem inventoryItem) {
+    public Set<ItemStockDetails> getStockDetaisByItem(InventoryItem inventoryItem) {
         return inventoryItem.getDetails();
     }
 
     @Override
-    public Set<ItemStockDetails> getStockDetais(Integer itemId) {
+    @Transactional(readOnly = true)
+    public Set<ItemStockDetails> getStockDetaisByItemId(Integer itemId) {
 	    InventoryItem inventoryItem = inventoryItemDao.getInventoryItem(itemId);
 	    if(inventoryItem != null){
 	        return inventoryItem.getDetails();
@@ -91,11 +93,13 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
     }
 
     @Override
+    @Transactional
     public ItemStockDetails saveItemStockDetail(ItemStockDetails itemStockDetail) {
         return stockDetailsDao.saveStockDetails(itemStockDetail);
     }
 
     @Override
+    @Transactional(readOnly = true)
     public ItemStockDetails getItemStockDetail(Integer id) {
         return stockDetailsDao.getStockDetails(id);
     }

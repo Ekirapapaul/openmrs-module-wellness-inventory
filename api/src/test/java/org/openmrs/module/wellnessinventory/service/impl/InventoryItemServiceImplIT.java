@@ -5,12 +5,14 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemStockDetails;
 import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 	
@@ -41,4 +43,18 @@ public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 		List<InventoryItem> items = Context.getService(InventoryService.class).getAllInventoryItems();
 		Assert.assertEquals(5, items.size());
 	}
+
+	@Test
+    public void shouldGetStockDetailsByItemId(){
+        Set<ItemStockDetails> stockDetails = itemService.getStockDetaisByItemId(1);
+        Assert.assertEquals(1, stockDetails.size());
+
+    }
+
+    @Test
+    public void shouldNotGetStockDetailsByItemId(){
+        Set<ItemStockDetails> stockDetails = itemService.getStockDetaisByItemId(2);
+        Assert.assertEquals(0, stockDetails.size());
+
+    }
 }

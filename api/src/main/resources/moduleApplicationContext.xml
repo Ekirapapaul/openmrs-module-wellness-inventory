@@ -52,6 +52,7 @@
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
                 <property name="inventoryItemDao" ref="inventoryItemDaoImpl"/>
+                <property name="stockDetailsDao" ref="stockDetailsDaoImpl"/>
             </bean>
         </property>
         <property name="preInterceptors">

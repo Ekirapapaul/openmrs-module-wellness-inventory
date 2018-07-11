@@ -47,14 +47,14 @@ public interface InventoryService extends OpenmrsService {
      *
      * @return the inventory item stock details.
      */
-    Set<ItemStockDetails> getStockDetais(InventoryItem inventoryItem);
+    Set<ItemStockDetails> getStockDetaisByItem(InventoryItem inventoryItem);
 
     /**
      * Gets a list of the stock details by item id.
      *
      * @return the inventory item stock details.
      */
-    Set<ItemStockDetails> getStockDetais(Integer itemId);
+    Set<ItemStockDetails> getStockDetaisByItemId(Integer itemId);
 
     /**
      * Saves a new or existing inventory item stock.
