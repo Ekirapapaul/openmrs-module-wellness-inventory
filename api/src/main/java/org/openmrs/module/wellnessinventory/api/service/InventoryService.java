@@ -2,11 +2,13 @@ package org.openmrs.module.wellnessinventory.api.service;
 
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
+import org.openmrs.module.wellnessinventory.api.model.ItemStock;
 import org.openmrs.module.wellnessinventory.api.model.ItemStockDetails;
 import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 
 public interface InventoryService extends OpenmrsService {
 	
@@ -45,12 +47,28 @@ public interface InventoryService extends OpenmrsService {
      *
      * @return the inventory item stock details.
      */
-    List<ItemStockDetails> getStockDetais(InventoryItem inventoryItem);
+    Set<ItemStockDetails> getStockDetais(InventoryItem inventoryItem);
 
     /**
      * Gets a list of the stock details by item id.
      *
      * @return the inventory item stock details.
      */
-    List<ItemStockDetails> getStockDetais(Integer itemId);
+    Set<ItemStockDetails> getStockDetais(Integer itemId);
+
+    /**
+     * Saves a new or existing inventory item stock.
+     *
+     * @param itemStockDetail the item stock to save.
+     * @return the saved inventory item stock detail.
+     */
+    ItemStockDetails saveItemStockDetail(ItemStockDetails itemStockDetail);
+
+    /**
+     * Gets an item stock detail for a given id.
+     *
+     * @param id the inventory item id
+     * @return the item stock detail with the given id
+     */
+    ItemStockDetails getItemStockDetail(Integer id);
 }

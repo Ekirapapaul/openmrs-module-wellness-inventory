@@ -82,4 +82,11 @@ public class InventoryItem extends BaseOpenmrsData {
 		this.itemType = itemType;
 	}
 
+    public Set<ItemStockDetails> getDetails() {
+        return details;
+    }
+
+    public void setDetails(Set<ItemStockDetails> details) {
+        this.details = details;
+    }
 }
