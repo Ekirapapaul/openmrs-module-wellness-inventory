@@ -8,21 +8,26 @@ import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.module.wellnessinventory.api.model.ItemType;
 import org.openmrs.module.wellnessinventory.api.service.InventoryItemTypeService;
 import org.openmrs.module.wellnessinventory.api.service.InventoryService;
+import org.openmrs.module.wellnessinventory.api.service.impl.InventoryItemTypeServiceImpl;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.mockito.Mockito.verify;
 
-public class InventoryServiceImplIT extends BaseModuleContextSensitiveTest {
+public class InventoryTypeServiceImplIT extends BaseModuleContextSensitiveTest {
 	
 	private InventoryItemTypeService itemService;
+	private InventoryService inventoryService;
 	
 	@Before
 	public void before() throws Exception {
 		executeDataSet("inventoryItems.xml");
 		itemService = Context.getService(InventoryItemTypeService.class);
+        inventoryService = Context.getService(InventoryService.class);
 	}
 	
 	@Test
@@ -52,4 +57,20 @@ public class InventoryServiceImplIT extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(1, (int) itemType.getId());
 		Assert.assertEquals(2, itemType.getInventoryItems().size());
 	}
+
+	@Test
+    public void shouldSetInventoryItems(){
+        ItemType itemType = itemService.getItemType(1);
+        InventoryItem inventoryItem = new InventoryItem();
+        inventoryItem.setName("new");
+        inventoryItem.setItemCode("4545");
+        inventoryItem.setDescription("description");
+
+        Set<InventoryItem> items = new HashSet<InventoryItem>();
+        items.add(inventoryItem);
+
+        itemType.setInventoryItems(items);
+        Assert.assertEquals(3, itemType.getInventoryItems().size());
+        System.out.println("Size" + inventoryService.getAllInventoryItems().size());
+    }
 }

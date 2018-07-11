@@ -8,5 +8,6 @@
         <mapping class="org.openmrs.module.wellnessinventory.api.model.InventoryItem"/>
         <mapping class="org.openmrs.module.wellnessinventory.api.model.ItemType"/>
         <mapping class="org.openmrs.module.wellnessinventory.api.model.StockRoom"/>
+        <mapping class="org.openmrs.module.wellnessinventory.api.model.ItemStockDetails"/>
     </session-factory>
 </hibernate-configuration>

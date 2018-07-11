@@ -12,7 +12,7 @@ import org.openmrs.test.BaseModuleContextSensitiveTest;
 import java.util.Date;
 import java.util.List;
 
-public class InventoryItemTypeServiceImplIT extends BaseModuleContextSensitiveTest {
+public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 	
 	private InventoryService itemService;
 	
