@@ -11,6 +11,7 @@ import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -73,4 +74,16 @@ public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(2, itemService.getStockDetaisByItemId(1).size());
 		
 	}
+
+	@Test
+    public void shouldGetItemStockDetails(){
+        List<InventoryItem> items = itemService.getAllInventoryItems();
+        Assert.assertEquals(4, items.size());
+        InventoryItem inventoryItem = items.get(0);
+        Assert.assertEquals(Integer.valueOf(1), inventoryItem.getId());
+        Assert.assertEquals(1,inventoryItem.getDetails().size());
+
+        Iterator<ItemStockDetails> iterator = inventoryItem.getDetails().iterator();
+        Assert.assertEquals(2,iterator.next().getQuantity() );
+    }
 }

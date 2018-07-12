@@ -6,6 +6,7 @@ import org.openmrs.BaseOpenmrsObject;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 @Entity(name = "InventoryItem")
@@ -31,6 +32,9 @@ public class InventoryItem extends BaseOpenmrsData {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "type_id")
 	private ItemType itemType;
+	
+	@Transient
+	private int itemsNum = 0;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inventoryItem")
 	private Set<ItemStockDetails> details = new HashSet<ItemStockDetails>();
@@ -87,5 +91,18 @@ public class InventoryItem extends BaseOpenmrsData {
 	
 	public void setDetails(Set<ItemStockDetails> details) {
 		this.details = details;
+	}
+	
+	public int getItemsNum() {
+		Iterator<ItemStockDetails> iterator = getDetails().iterator();
+		if (iterator.hasNext()) {
+			ItemStockDetails stockDetail = iterator.next();
+			itemsNum = stockDetail.getQuantity();
+		}
+		return itemsNum;
+	}
+	
+	public void setItemsNum(int itemsNum) {
+		this.itemsNum = itemsNum;
 	}
 }
