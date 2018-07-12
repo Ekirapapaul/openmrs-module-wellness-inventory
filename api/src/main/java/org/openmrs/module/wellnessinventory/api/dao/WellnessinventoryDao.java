@@ -19,8 +19,15 @@ import org.springframework.stereotype.Repository;
 @Repository("wellnessinventory.WellnessinventoryDao")
 public class WellnessinventoryDao {
 	
-	@Autowired
 	SessionFactory sessionFactory;
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();

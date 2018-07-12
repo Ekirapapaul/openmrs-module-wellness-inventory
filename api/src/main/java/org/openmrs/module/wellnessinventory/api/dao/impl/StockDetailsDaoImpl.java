@@ -15,11 +15,18 @@ import java.util.List;
 @Repository
 public class StockDetailsDaoImpl implements StockDetailsDao {
 	
-	@Autowired
 	SessionFactory sessionFactory;
 	
 	public StockDetailsDaoImpl() {
 		
+	}
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 	
 	/**

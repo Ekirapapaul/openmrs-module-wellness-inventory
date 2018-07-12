@@ -17,11 +17,18 @@ public class InventoryItemTypeDaoImpl implements InventoryItemTypeDao {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
-	@Autowired
 	SessionFactory sessionFactory;
 	
 	public InventoryItemTypeDaoImpl() {
 		
+	}
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
 	}
 	
 	/**

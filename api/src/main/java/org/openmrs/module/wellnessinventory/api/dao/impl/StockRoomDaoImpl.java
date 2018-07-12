@@ -18,8 +18,15 @@ public class StockRoomDaoImpl implements StockRoomDao {
 	
 	protected final Log log = LogFactory.getLog(this.getClass());
 	
-	@Autowired
 	SessionFactory sessionFactory;
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
 	
 	private Session getSession() {
 		return sessionFactory.getCurrentSession();

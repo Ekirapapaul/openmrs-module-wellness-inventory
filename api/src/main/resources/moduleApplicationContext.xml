@@ -34,7 +34,13 @@
         </property>
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.WellnessinventoryServiceImpl">
-                <property name="dao" ref="wellnessinventory.WellnessinventoryDao"/>
+                <property name="dao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.WellnessinventoryDao"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </property>
         <property name="preInterceptors">
@@ -51,8 +57,20 @@
         </property>
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryServiceImpl">
-                <property name="inventoryItemDao" ref="inventoryItemDaoImpl"/>
-                <property name="stockDetailsDao" ref="stockDetailsDaoImpl"/>
+                <property name="inventoryItemDao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemDaoImpl"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
+                <property name="stockDetailsDao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.StockDetailsDaoImpl"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </property>
         <property name="preInterceptors">
@@ -62,7 +80,6 @@
             <ref bean="transactionAttributeSource"/>
         </property>
     </bean>
-
     <bean id="inventoryItemTypeService"
           class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
         <property name="transactionManager">
@@ -70,7 +87,13 @@
         </property>
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryItemTypeServiceImpl">
-                <property name="itemTypeDao" ref="inventoryItemTypeDaoImpl"/>
+                <property name="itemTypeDao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.InventoryItemTypeDaoImpl"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </property>
         <property name="preInterceptors">
@@ -87,7 +110,13 @@
         </property>
         <property name="target">
             <bean class="org.openmrs.module.wellnessinventory.api.service.impl.StockRoomServiceImpl">
-                <property name="stockRoomDao" ref="stockRoomDaoImpl"/>
+                <property name="stockRoomDao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.StockRoomDaoImpl"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </property>
         <property name="preInterceptors">
