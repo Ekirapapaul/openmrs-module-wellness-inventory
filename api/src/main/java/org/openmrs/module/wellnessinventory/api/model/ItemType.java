@@ -24,6 +24,9 @@ public class ItemType extends BaseOpenmrsData {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "itemType")
 	private Set<InventoryItem> inventoryItems = new HashSet<InventoryItem>();
 	
+	@Transient
+	private int itemsNum;
+	
 	public ItemType() {
 		
 	}
@@ -56,5 +59,13 @@ public class ItemType extends BaseOpenmrsData {
 			this.inventoryItems.addAll(inventoryItems);
 		}
 		
+	}
+	
+	public int getItemsNum() {
+		return getInventoryItems().size();
+	}
+	
+	public void setItemsNum(int itemsNum) {
+		this.itemsNum = itemsNum;
 	}
 }
