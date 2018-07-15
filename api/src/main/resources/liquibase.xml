@@ -263,5 +263,63 @@
                                  baseColumnNames="item_id" referencedTableName="inventory_item"
                                  referencedColumnNames="item_id"/>
     </changeSet>
+    <changeSet id="wellnessinventory-2018-07-14-12-21" author="ekirapa">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="inventory_item_order"/>
+            </not>
+        </preConditions>
+        <comment>
+            Creating the inventory orders table
+        </comment>
+        <createTable tableName="inventory_item_order">
+            <column name="order_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="item_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="address" type="varchar(255)"/>
+            <column name="delivery_date" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="quantity" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="payment_mode" type="varchar(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="creator" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint constraintName="inventory_item_order_fk" baseTableName="inventory_item_order"
+                                 baseColumnNames="item_id" referencedTableName="inventory_item"
+                                 referencedColumnNames="item_id"/>
+    </changeSet>
 
 </databaseChangeLog>
