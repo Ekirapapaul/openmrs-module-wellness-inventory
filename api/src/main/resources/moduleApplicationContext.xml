@@ -126,6 +126,29 @@
             <ref bean="transactionAttributeSource"/>
         </property>
     </bean>
+    <bean id="orderService"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager">
+            <ref bean="transactionManager"/>
+        </property>
+        <property name="target">
+            <bean class="org.openmrs.module.wellnessinventory.api.service.impl.InventoryOrderServiceImpl">
+                <property name="itemOrderDao"> <!-- Name of the DAO property on your ServiceImpl -->
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.ItemOrderDaoImpl"> <!-- Your DAO's concrete class -->
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </property>
+        <property name="preInterceptors">
+            <ref bean="serviceInterceptors"/>
+        </property>
+        <property name="transactionAttributeSource">
+            <ref bean="transactionAttributeSource"/>
+        </property>
+    </bean>
     <!-- Adds WellnessinventoryService to OpenMRS context so it can be accessed
     calling Context.getService(WellnessinventoryService.class)-->
     <bean parent="serviceContext">
@@ -157,6 +180,14 @@
             <list merge="true">
                 <value>org.openmrs.module.wellnessinventory.api.service.StockRoomService</value>
                 <ref bean="stockRoomService"/>
+            </list>
+        </property>
+    </bean>
+    <bean parent="serviceContext">
+        <property name="moduleService">
+            <list merge="true">
+                <value>org.openmrs.module.wellnessinventory.api.service.InventoryOrderService</value>
+                <ref bean="orderService"/>
             </list>
         </property>
     </bean>
