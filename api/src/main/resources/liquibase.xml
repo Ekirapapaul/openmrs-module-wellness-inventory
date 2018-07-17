@@ -292,6 +292,9 @@
             <column name="payment_mode" type="varchar(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
+            <column name="is_delivery" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
             <column name="creator" type="int">
                 <constraints nullable="true"/>
             </column>

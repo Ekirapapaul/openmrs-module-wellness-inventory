@@ -23,4 +23,8 @@
     <inventory_stock_details detail_id="1" item_id="1" quantity="2" name="Supplemnt stock"
                              expiration="2017-07-07 06:20:01" uuid="9411c3f2-84e9-11e8-a920-e3038eaea0fe"
                              date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
+
+    <inventory_item_order order_id="1" item_id="1" address="Nairobi" delivery_date="2017-07-07 06:20:01" quantity="20"
+                          is_delivery="0" payment_mode="MPESA" uuid="bc684bda-88e7-11e8-8bf1-17dccc7fa8fd"
+                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 </dataset>

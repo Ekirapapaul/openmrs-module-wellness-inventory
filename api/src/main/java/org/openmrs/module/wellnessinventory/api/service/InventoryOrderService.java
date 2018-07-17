@@ -11,7 +11,7 @@ public interface InventoryOrderService extends OpenmrsService {
 	/**
 	 * Gets a list all orders.
 	 * 
-	 * @return all orders  list.
+	 * @return all orders list.
 	 */
 	List<ItemOrder> getAllOrders();
 	
@@ -21,7 +21,7 @@ public interface InventoryOrderService extends OpenmrsService {
 	 * @param orderId
 	 * @return the order with the given id
 	 */
-    ItemOrder getItemType(Integer orderId);
+	ItemOrder getItemType(Integer orderId);
 	
 	/**
 	 * Saves a new or existing order
@@ -29,7 +29,7 @@ public interface InventoryOrderService extends OpenmrsService {
 	 * @param order the order to save.
 	 * @return the saved order.
 	 */
-    ItemOrder saveItemType(ItemOrder order);
+	ItemOrder saveOrder(ItemOrder order);
 	
 	/**
 	 * Deletes an order

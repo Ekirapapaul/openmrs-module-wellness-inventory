@@ -20,18 +20,20 @@ public class ItemOrder extends BaseOpenmrsData {
     @JoinColumn(name = "item_id")
     private InventoryItem inventoryItem;
 
-
-    @Column(name = "address", nullable = true)
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "delivery_date", nullable = true)
+    @Column(name = "delivery_date")
     private Date deliveryDate;
 
     @Column(name = "quantity", nullable = false)
     private int quantity;
 
-    @Column(name = "payment_mode", nullable = true)
+    @Column(name = "payment_mode")
     private String paymentMode;
+
+    @Column(name = "is_delivery", nullable = false)
+    private Boolean isDelivery = Boolean.FALSE;
 
     @Override
     public Integer getId() {
@@ -81,5 +83,13 @@ public class ItemOrder extends BaseOpenmrsData {
 
     public void setPaymentMode(String paymentMode) {
         this.paymentMode = paymentMode;
+    }
+
+    public Boolean getIsDelivery() {
+        return isDelivery;
+    }
+
+    public void seIsDelivery(Boolean delivery) {
+        isDelivery = delivery;
     }
 }
