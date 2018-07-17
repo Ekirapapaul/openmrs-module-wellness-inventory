@@ -10,5 +10,6 @@
         <mapping class="org.openmrs.module.wellnessinventory.api.model.StockRoom"/>
         <mapping class="org.openmrs.module.wellnessinventory.api.model.ItemStockDetails"/>
         <mapping class="org.openmrs.module.wellnessinventory.api.model.ItemOrder"/>
+        <mapping class="org.openmrs.module.wellnessinventory.api.model.ItemUnit"/>
     </session-factory>
 </hibernate-configuration>

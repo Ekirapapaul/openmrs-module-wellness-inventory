@@ -35,14 +35,18 @@ public class ItemOrder extends BaseOpenmrsData {
     @Column(name = "is_delivery", nullable = false)
     private Boolean isDelivery = Boolean.FALSE;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_id")
+    private ItemUnit itemUnit;
+
     @Override
     public Integer getId() {
-        return null;
+        return id;
     }
 
     @Override
     public void setId(Integer id) {
-
+        this.id = id;
     }
 
     public InventoryItem getInventoryItem() {
@@ -91,5 +95,13 @@ public class ItemOrder extends BaseOpenmrsData {
 
     public void seIsDelivery(Boolean delivery) {
         isDelivery = delivery;
+    }
+
+    public ItemUnit getItemUnit() {
+        return itemUnit;
+    }
+
+    public void setItemUnit(ItemUnit itemUnit) {
+        this.itemUnit = itemUnit;
     }
 }

@@ -28,7 +28,7 @@ public class InventoryOrderServiceImpl extends BaseOpenmrsService implements Inv
 	
 	@Override
 	@Transactional(readOnly = true)
-	public ItemOrder getItemType(Integer orderId) {
+	public ItemOrder getOrder(Integer orderId) {
 		return itemOrderDao.getItemOrder(orderId);
 	}
 	

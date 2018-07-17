@@ -21,7 +21,7 @@ public interface InventoryOrderService extends OpenmrsService {
 	 * @param orderId
 	 * @return the order with the given id
 	 */
-	ItemOrder getItemType(Integer orderId);
+	ItemOrder getOrder(Integer orderId);
 	
 	/**
 	 * Saves a new or existing order

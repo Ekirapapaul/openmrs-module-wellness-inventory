@@ -228,6 +228,9 @@
             <column name="quantity" type="int">
                 <constraints nullable="false"/>
             </column>
+            <column name="unit_id" type="int">
+                <constraints nullable="true"/>
+            </column>
             <column name="expiration" type="datetime">
                 <constraints nullable="true"/>
             </column>
@@ -262,6 +265,9 @@
         <addForeignKeyConstraint constraintName="inventory_item_stock_fk" baseTableName="inventory_stock_details"
                                  baseColumnNames="item_id" referencedTableName="inventory_item"
                                  referencedColumnNames="item_id"/>
+        <addForeignKeyConstraint constraintName="inventory_item_unit_fk" baseTableName="inventory_stock_details"
+                                 baseColumnNames="unit_id" referencedTableName="inventory_item_unit"
+                                 referencedColumnNames="unit_id"/>
     </changeSet>
     <changeSet id="wellnessinventory-2018-07-14-12-21" author="ekirapa">
         <preConditions onFail="MARK_RAN">
@@ -288,6 +294,9 @@
             </column>
             <column name="quantity" type="int">
                 <constraints nullable="false"/>
+            </column>
+            <column name="unit_id" type="int">
+                <constraints nullable="true"/>
             </column>
             <column name="payment_mode" type="varchar(255)">
                 <constraints nullable="false" unique="true"/>
@@ -323,6 +332,9 @@
         <addForeignKeyConstraint constraintName="inventory_item_order_fk" baseTableName="inventory_item_order"
                                  baseColumnNames="item_id" referencedTableName="inventory_item"
                                  referencedColumnNames="item_id"/>
+        <addForeignKeyConstraint constraintName="inventory_item_unit_fk" baseTableName="inventory_item_order"
+                                 baseColumnNames="unit_id" referencedTableName="inventory_item_unit"
+                                 referencedColumnNames="unit_id"/>
     </changeSet>
     <changeSet author="ekirapa" id="wellnessinventory-2018-07-17-1">
         <preConditions onFail="MARK_RAN">

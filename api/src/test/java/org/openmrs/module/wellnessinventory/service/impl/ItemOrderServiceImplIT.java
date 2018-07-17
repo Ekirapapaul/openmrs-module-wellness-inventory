@@ -33,8 +33,9 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void shouldGetOrderById() {
-		ItemOrder order = orderService.getItemType(1);
+		ItemOrder order = orderService.getOrder(1);
 		Assert.assertEquals(false, order.getIsDelivery());
+		Assert.assertEquals(Integer.valueOf(1),order.getId());
 	}
 	
 	@Test

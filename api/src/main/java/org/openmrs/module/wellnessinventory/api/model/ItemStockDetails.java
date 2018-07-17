@@ -30,7 +30,11 @@ public class ItemStockDetails extends BaseOpenmrsData {
 	
 	@Column(name = "expiration")
 	private Date expiration;
-	
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_id")
+    private ItemUnit itemUnit;
 	@Override
 	public Integer getId() {
 		return this.id;
@@ -72,4 +76,12 @@ public class ItemStockDetails extends BaseOpenmrsData {
 	public void setInventoryItem(InventoryItem inventoryItem) {
 		this.inventoryItem = inventoryItem;
 	}
+
+    public ItemUnit getItemUnit() {
+        return itemUnit;
+    }
+
+    public void setItemUnit(ItemUnit itemUnit) {
+        this.itemUnit = itemUnit;
+    }
 }
