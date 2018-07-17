@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity(name = "ItemUnit")
 @Table(name = "inventory_item_unit")
 public class ItemUnit extends BaseOpenmrsData {
+
     private static final long serialVersionUID = 1L;
 
     @Id

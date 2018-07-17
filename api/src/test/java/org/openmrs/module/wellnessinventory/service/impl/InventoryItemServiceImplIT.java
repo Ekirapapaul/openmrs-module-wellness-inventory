@@ -49,6 +49,7 @@ public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 	public void shouldGetStockDetailsByItemId() {
 		Set<ItemStockDetails> stockDetails = itemService.getStockDetaisByItemId(1);
 		Assert.assertEquals(1, stockDetails.size());
+		Assert.assertEquals(Integer.valueOf(1), stockDetails.iterator().next().getItemUnit().getId());
 		
 	}
 	

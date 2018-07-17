@@ -15,8 +15,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Date;
 import java.util.List;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@org.springframework.test.context.ContextConfiguration(locations = { "classpath:TestingApplicationContext.xml" }, inheritLocations = true)
 public class StockDetailsDaoImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Autowired
@@ -31,6 +29,7 @@ public class StockDetailsDaoImplIT extends BaseModuleContextSensitiveTest {
 	public void shouldGetAllItems() {
 		List<ItemStockDetails> stockDetails = stockDetailsDao.getAllStockDetails();
 		Assert.assertEquals(1, stockDetails.size());
+		Assert.assertEquals(Integer.valueOf(1), stockDetails.get(0).getItemUnit().getId());
 	}
 	
 	@Test

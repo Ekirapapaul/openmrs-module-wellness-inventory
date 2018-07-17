@@ -104,4 +104,12 @@ public class ItemOrder extends BaseOpenmrsData {
     public void setItemUnit(ItemUnit itemUnit) {
         this.itemUnit = itemUnit;
     }
+
+    public Boolean getDelivery() {
+        return isDelivery;
+    }
+
+    public void setDelivery(Boolean delivery) {
+        isDelivery = delivery;
+    }
 }
