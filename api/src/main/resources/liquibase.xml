@@ -378,9 +378,25 @@
         <addForeignKeyConstraint constraintName="inventory_item_order_fk" baseTableName="inventory_item_order"
                                  baseColumnNames="item_id" referencedTableName="inventory_item"
                                  referencedColumnNames="item_id"/>
-        <addForeignKeyConstraint constraintName="inventory_item_unit_fk" baseTableName="inventory_item_order"
+        <addForeignKeyConstraint constraintName="inventory_order_unit_fk" baseTableName="inventory_item_order"
                                  baseColumnNames="unit_id" referencedTableName="inventory_item_unit"
                                  referencedColumnNames="unit_id"/>
+    </changeSet>
+    <changeSet id="wellnessinventory-2018-07-14-21-21" author="ekirapa">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="inventory_item_order"/>
+        </preConditions>
+        <comment>
+            Add client column to orders table
+        </comment>
+        <addColumn tableName="inventory_item_order">
+            <column name="client_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint constraintName="inventory_order_client_fk" baseTableName="inventory_item_order"
+                                 baseColumnNames="client_id" referencedTableName="patient"
+                                 referencedColumnNames="patient_id"/>
     </changeSet>
 
 </databaseChangeLog>

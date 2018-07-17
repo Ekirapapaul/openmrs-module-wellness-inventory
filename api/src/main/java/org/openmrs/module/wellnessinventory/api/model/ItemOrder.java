@@ -1,6 +1,7 @@
 package org.openmrs.module.wellnessinventory.api.model;
 
 import org.openmrs.BaseOpenmrsData;
+import org.openmrs.Patient;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -38,6 +39,10 @@ public class ItemOrder extends BaseOpenmrsData {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "unit_id")
     private ItemUnit itemUnit;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Patient client;
 
     @Override
     public Integer getId() {
@@ -111,5 +116,13 @@ public class ItemOrder extends BaseOpenmrsData {
 
     public void setDelivery(Boolean delivery) {
         isDelivery = delivery;
+    }
+
+    public Patient getClient() {
+        return client;
+    }
+
+    public void setClient(Patient client) {
+        this.client = client;
     }
 }
