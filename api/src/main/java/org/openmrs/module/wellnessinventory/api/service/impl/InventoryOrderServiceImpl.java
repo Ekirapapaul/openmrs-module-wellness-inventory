@@ -16,7 +16,7 @@ import java.util.List;
 public class InventoryOrderServiceImpl extends BaseOpenmrsService implements InventoryOrderService {
 	
 	private ItemOrderDao itemOrderDao;
-
+	
 	private StockDetailsDao stockDetailsDao;
 	
 	public ItemOrderDao getItemOrderDao() {
@@ -26,16 +26,16 @@ public class InventoryOrderServiceImpl extends BaseOpenmrsService implements Inv
 	public void setItemOrderDao(ItemOrderDao itemOrderDao) {
 		this.itemOrderDao = itemOrderDao;
 	}
-
-    public StockDetailsDao getStockDetailsDao() {
-        return stockDetailsDao;
-    }
-
-    public void setStockDetailsDao(StockDetailsDao stockDetailsDao) {
-        this.stockDetailsDao = stockDetailsDao;
-    }
-
-    @Override
+	
+	public StockDetailsDao getStockDetailsDao() {
+		return stockDetailsDao;
+	}
+	
+	public void setStockDetailsDao(StockDetailsDao stockDetailsDao) {
+		this.stockDetailsDao = stockDetailsDao;
+	}
+	
+	@Override
 	@Transactional(readOnly = true)
 	public List<ItemOrder> getAllOrders() {
 		return itemOrderDao.getAllOrders();
@@ -50,16 +50,16 @@ public class InventoryOrderServiceImpl extends BaseOpenmrsService implements Inv
 	@Override
 	@Transactional
 	public ItemOrder saveOrder(ItemOrder order) {
-	    ItemOrder saveOrder =  itemOrderDao.saveItemOrder(order);
-        InventoryItem inventoryItem = saveOrder.getInventoryItem();
-        Iterator<ItemStockDetails> iterator = inventoryItem.getDetails().iterator();
-        if (iterator.hasNext()) {
-            ItemStockDetails stockDetail = iterator.next();
-            int quantity = stockDetail.getQuantity();
-            quantity = quantity - saveOrder.getQuantity();
-            stockDetail.setQuantity(quantity);
-            stockDetailsDao.saveStockDetails(stockDetail);
-        }
+		ItemOrder saveOrder = itemOrderDao.saveItemOrder(order);
+		InventoryItem inventoryItem = saveOrder.getInventoryItem();
+		Iterator<ItemStockDetails> iterator = inventoryItem.getDetails().iterator();
+		if (iterator.hasNext()) {
+			ItemStockDetails stockDetail = iterator.next();
+			int quantity = stockDetail.getQuantity();
+			quantity = quantity - saveOrder.getQuantity();
+			stockDetail.setQuantity(quantity);
+			stockDetailsDao.saveStockDetails(stockDetail);
+		}
 		return saveOrder;
 	}
 	

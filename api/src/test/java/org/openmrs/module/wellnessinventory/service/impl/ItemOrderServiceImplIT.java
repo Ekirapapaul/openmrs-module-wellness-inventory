@@ -51,8 +51,8 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 		
 		List<ItemOrder> items = orderService.getAllOrders();
 		Assert.assertEquals(2, items.size());
-
-        InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
-        Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
+		
+		InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
+		Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
 	}
 }
