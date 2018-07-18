@@ -21,7 +21,7 @@ public interface ItemUnitService extends OpenmrsService {
 	 * @param unitId the unit id
 	 * @return the unit with the given id
 	 */
-    ItemUnit getItemUnit(Integer unitId);
+	ItemUnit getItemUnit(Integer unitId);
 	
 	/**
 	 * Saves a new or existing inventory stock room.
@@ -29,7 +29,7 @@ public interface ItemUnitService extends OpenmrsService {
 	 * @param itemUnit the stock room to save.
 	 * @return the saved inventory stock room.
 	 */
-    ItemUnit saveItemUnit(ItemUnit itemUnit);
+	ItemUnit saveItemUnit(ItemUnit itemUnit);
 	
 	/**
 	 * Deletes a stock room the database.

@@ -17,6 +17,10 @@ public class ItemUnitDaoImpl implements ItemUnitDao {
 
     protected final Log log = LogFactory.getLog(this.getClass());
 
+    public ItemUnitDaoImpl() {
+
+    }
+
     SessionFactory sessionFactory;
 
     public SessionFactory getSessionFactory() {

@@ -41,6 +41,10 @@ public class InventoryItem extends BaseOpenmrsData {
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inventoryItem")
 	private Set<ItemOrder> orders = new HashSet<ItemOrder>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "unit_id")
+    private ItemUnit itemUnit;
 	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -116,4 +120,12 @@ public class InventoryItem extends BaseOpenmrsData {
 	public void setOrders(Set<ItemOrder> orders) {
 		this.orders = orders;
 	}
+
+    public ItemUnit getItemUnit() {
+        return itemUnit;
+    }
+
+    public void setItemUnit(ItemUnit itemUnit) {
+        this.itemUnit = itemUnit;
+    }
 }

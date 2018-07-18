@@ -13,13 +13,13 @@ import org.openmrs.test.BaseModuleContextSensitiveTest;
 import java.util.List;
 
 public class ItemUnitServiceImplIT extends BaseModuleContextSensitiveTest {
-
+	
 	private ItemUnitService itemUnitService;
 	
 	@Before
 	public void before() throws Exception {
 		executeDataSet("inventoryItems.xml");
-        itemUnitService = Context.getService(ItemUnitService.class);
+		itemUnitService = Context.getService(ItemUnitService.class);
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ public class ItemUnitServiceImplIT extends BaseModuleContextSensitiveTest {
 	
 	@Test
 	public void shouldGetItemUnitById() {
-        ItemUnit unit = itemUnitService.getItemUnit(1);
+		ItemUnit unit = itemUnitService.getItemUnit(1);
 		Assert.assertEquals(Integer.valueOf(1), unit.getId());
 	}
 	
@@ -40,8 +40,8 @@ public class ItemUnitServiceImplIT extends BaseModuleContextSensitiveTest {
 		itemUnit.setName("Bottles");
 		itemUnit.setDescription("Bottles");
 		itemUnitService.saveItemUnit(itemUnit);
-
-        List<ItemUnit> items = itemUnitService.getAllUnits();
-        Assert.assertEquals(3, items.size());
+		
+		List<ItemUnit> items = itemUnitService.getAllUnits();
+		Assert.assertEquals(3, items.size());
 	}
 }

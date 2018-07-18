@@ -398,5 +398,21 @@
                                  baseColumnNames="client_id" referencedTableName="patient"
                                  referencedColumnNames="patient_id"/>
     </changeSet>
+    <changeSet id="wellnessinventory-2018-07-18-17-21" author="ekirapa">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="inventory_item"/>
+        </preConditions>
+        <comment>
+            Add unit column to inventory item table
+        </comment>
+        <addColumn tableName="inventory_item">
+            <column name="unit_id" type="int">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint constraintName="inventory_item_unit_fk" baseTableName="inventory_item"
+                                 baseColumnNames="unit_id" referencedTableName="inventory_item_unit"
+                                 referencedColumnNames="unit_id"/>
+    </changeSet>
 
 </databaseChangeLog>
