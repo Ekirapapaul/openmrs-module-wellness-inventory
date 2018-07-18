@@ -42,7 +42,7 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 	public void shouldSaveOrder() {
 		InventoryItem inventoryItem = itemService.getInventoryItem(1);
 		ItemOrder itemOrder = new ItemOrder();
-		itemOrder.setQuantity(40);
+		itemOrder.setQuantity(4);
 		itemOrder.setPaymentMode("MPESA");
 		itemOrder.setInventoryItem(inventoryItem);
 		itemOrder.setAddress("Nairobi");
@@ -51,5 +51,8 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 		
 		List<ItemOrder> items = orderService.getAllOrders();
 		Assert.assertEquals(2, items.size());
+
+        InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
+        Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
 	}
 }

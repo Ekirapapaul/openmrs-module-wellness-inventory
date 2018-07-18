@@ -140,6 +140,13 @@
                         </property>
                     </bean>
                 </property>
+                <property name="stockDetailsDao">
+                    <bean class="org.openmrs.module.wellnessinventory.api.dao.impl.StockDetailsDaoImpl">
+                        <property name="sessionFactory">
+                            <ref bean="sessionFactory"/>
+                        </property>
+                    </bean>
+                </property>
             </bean>
         </property>
         <property name="preInterceptors">
