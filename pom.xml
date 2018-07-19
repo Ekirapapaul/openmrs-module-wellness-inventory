@@ -18,9 +18,10 @@
     <url>https://wiki.openmrs.org/x/FQ4z</url>
 
     <scm>
-        <connection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</connection>
-        <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</developerConnection>
-        <url>https://github.com/openmrs/openmrs-module-wellnessinventory/</url>
+        <connection>scm:git:https://github.com/Ekirapapaul/openmrs_module_wellness.inventory</connection>
+        <developerConnection>scm:git:git@github.com:openmrs/openmrs_module_wellness.inventory.git</developerConnection>
+        <url>https://github.com/Ekirapapaul/openmrs_module_wellness.inventory/</url>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
@@ -82,5 +83,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>bintray-ekirapa-wellnessinventory</id>
+            <name>ekirapa-wellnessinventory</name>
+            <url>https://api.bintray.com/maven/ekirapa/wellnessinventory/wellnessinventory/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
 </project>
