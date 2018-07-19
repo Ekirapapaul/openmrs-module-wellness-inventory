@@ -36,15 +36,14 @@ public class InventoryItem extends BaseOpenmrsData {
 	@Transient
 	private int itemsNum = 0;
 	
+	@Transient
+	private String itemUnits = "0";
+	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inventoryItem")
 	private Set<ItemStockDetails> details = new HashSet<ItemStockDetails>();
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "inventoryItem")
 	private Set<ItemOrder> orders = new HashSet<ItemOrder>();
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "unit_id")
-    private ItemUnit itemUnit;
 	
 	public static long getSerialVersionUID() {
 		return serialVersionUID;
@@ -109,6 +108,20 @@ public class InventoryItem extends BaseOpenmrsData {
 		return itemsNum;
 	}
 	
+	public String getItemUnits() {
+		Iterator<ItemStockDetails> iterator = getDetails().iterator();
+		if (iterator.hasNext()) {
+			ItemStockDetails stockDetail = iterator.next();
+			itemsNum = stockDetail.getQuantity();
+			itemUnits = String.format("%d %s", itemsNum, stockDetail.getItemUnit().getName());
+		}
+		return itemUnits;
+	}
+	
+	public void setItemUnits(String itemUnits) {
+		this.itemUnits = itemUnits;
+	}
+	
 	public void setItemsNum(int itemsNum) {
 		this.itemsNum = itemsNum;
 	}
@@ -120,12 +133,5 @@ public class InventoryItem extends BaseOpenmrsData {
 	public void setOrders(Set<ItemOrder> orders) {
 		this.orders = orders;
 	}
-
-    public ItemUnit getItemUnit() {
-        return itemUnit;
-    }
-
-    public void setItemUnit(ItemUnit itemUnit) {
-        this.itemUnit = itemUnit;
-    }
+	
 }
