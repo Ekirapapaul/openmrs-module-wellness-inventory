@@ -65,6 +65,14 @@ public interface InventoryService extends OpenmrsService {
 	ItemStockDetails saveItemStockDetail(ItemStockDetails itemStockDetail);
 	
 	/**
+	 * Updates an existing inventory item stock.
+	 * 
+	 * @param itemStockDetail the item stock to save.
+	 * @return the saved inventory item stock detail.
+	 */
+	ItemStockDetails updateItemStockDetail(ItemStockDetails itemStockDetail);
+	
+	/**
 	 * Gets an item stock detail for a given id.
 	 * 
 	 * @param id the inventory item id

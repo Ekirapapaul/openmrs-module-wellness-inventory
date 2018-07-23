@@ -57,6 +57,13 @@ public class StockDetailsDaoImpl implements StockDetailsDao {
 	
 	@Override
 	@Transactional
+	public ItemStockDetails updateStockDetails(ItemStockDetails stockDetails) {
+		getSession().update(stockDetails);
+		return stockDetails;
+	}
+	
+	@Override
+	@Transactional
 	public void purgeStockDetails(ItemStockDetails stockDetails) {
 		
 	}

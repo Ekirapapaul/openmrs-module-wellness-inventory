@@ -85,6 +85,26 @@ public class InventoryItemServiceImplIT extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(1, inventoryItem.getDetails().size());
 		
 		Iterator<ItemStockDetails> iterator = inventoryItem.getDetails().iterator();
-		Assert.assertEquals(2, iterator.next().getQuantity());
+		Assert.assertEquals(42, iterator.next().getQuantity());
+	}
+	
+	@Test
+	public void shouldUpdateStock() {
+		List<InventoryItem> items = itemService.getAllInventoryItems();
+		InventoryItem inventoryItem = items.get(0);
+		Iterator<ItemStockDetails> iterator = inventoryItem.getDetails().iterator();
+		ItemStockDetails stockDetails = iterator.next();
+		Assert.assertEquals(42, stockDetails.getQuantity());
+		
+		int newQuantity = stockDetails.getQuantity() + 10;
+		stockDetails.setQuantity(newQuantity);
+		ItemStockDetails newStock = itemService.updateItemStockDetail(stockDetails);
+		Assert.assertEquals(52, newStock.getQuantity());
+		
+		//Refetch
+		Iterator<ItemStockDetails> iterator2 = inventoryItem.getDetails().iterator();
+		ItemStockDetails stockDetails2 = iterator2.next();
+		Assert.assertEquals(52, stockDetails2.getQuantity());
+		
 	}
 }

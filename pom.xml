@@ -9,7 +9,7 @@
 
     <groupId>org.openmrs.module</groupId>
     <artifactId>wellnessinventory</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>pom</packaging>
     <name>Wellnessinventory</name>
     <description>An inventory module for the wellness project</description>
@@ -17,10 +17,9 @@
     <url>https://wiki.openmrs.org/x/FQ4z</url>
 
     <scm>
-        <connection>scm:git:https://github.com/Ekirapapaul/openmrs_module_wellness.inventory</connection>
-        <developerConnection>scm:git:git@github.com:openmrs/openmrs_module_wellness.inventory.git</developerConnection>
-        <url>https://github.com/Ekirapapaul/openmrs_module_wellness.inventory/</url>
-        <tag>1.0.0</tag>
+        <connection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</connection>
+        <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</developerConnection>
+        <url>https://github.com/openmrs/openmrs-module-wellnessinventory/</url>
     </scm>
 
     <modules>
@@ -82,12 +81,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <distributionManagement>
-        <repository>
-            <id>bintray-ekirapa-wellnessinventory</id>
-            <name>ekirapa-wellnessinventory</name>
-            <url>https://api.bintray.com/maven/ekirapa/wellnessinventory/wellnessinventory/;publish=1</url>
-        </repository>
-    </distributionManagement>
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>bintray-ekirapa-wellnessinventory</id>-->
+            <!--<name>ekirapa-wellnessinventory</name>-->
+            <!--<url>https://api.bintray.com/maven/ekirapa/wellnessinventory/wellnessinventory/;publish=1</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
 
 </project>

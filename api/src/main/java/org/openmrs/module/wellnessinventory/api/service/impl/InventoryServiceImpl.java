@@ -99,6 +99,11 @@ public class InventoryServiceImpl extends BaseOpenmrsService implements Inventor
 	}
 	
 	@Override
+	public ItemStockDetails updateItemStockDetail(ItemStockDetails itemStockDetail) {
+		return stockDetailsDao.updateStockDetails(itemStockDetail);
+	}
+	
+	@Override
 	@Transactional(readOnly = true)
 	public ItemStockDetails getItemStockDetail(Integer id) {
 		return stockDetailsDao.getStockDetails(id);

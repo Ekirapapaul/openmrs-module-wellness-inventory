@@ -13,5 +13,7 @@ public interface StockDetailsDao {
 	
 	ItemStockDetails saveStockDetails(ItemStockDetails stockDetails);
 	
+	ItemStockDetails updateStockDetails(ItemStockDetails stockDetails);
+	
 	void purgeStockDetails(ItemStockDetails stockDetails);
 }
