@@ -51,3 +51,5 @@ pom.xml.releaseBackup
 *.out
 .java-version
 /bin/
+
+release.properties
