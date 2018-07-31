@@ -7,16 +7,16 @@ import org.openmrs.module.wellnessinventory.api.model.StockRoom;
 import java.util.List;
 
 public interface ItemOrderDao {
-
-    public List<ItemOrder> getAllOrders();
-
-    ItemOrder getItemOrder(Integer id);
-
-    List<ItemOrder> getClientOrders(Patient patient);
-
-    List<ItemOrder> getClientOrders(Integer patientId);
-
-    ItemOrder saveItemOrder(ItemOrder order);
-
-    void purgeItemOrder(ItemOrder order);
+	
+	public List<ItemOrder> getAllOrders();
+	
+	ItemOrder getItemOrder(Integer id);
+	
+	List<ItemOrder> getClientOrders(Patient patient);
+	
+	List<ItemOrder> getClientOrders(Integer patientId);
+	
+	ItemOrder saveItemOrder(ItemOrder order);
+	
+	void purgeItemOrder(ItemOrder order);
 }
