@@ -20,7 +20,7 @@
     <scm>
         <connection>scm:git:git://github.com/Ekirapapaul/openmrs-module-wellness-inventory.git</connection>
         <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-wellness-inventory..git</developerConnection>
-        <url>scm:git:git@github.com:/Ekirapapaul/openmrs-module-wellness-inventory.git</url>
+        <url>scm:git:https@github.com:/Ekirapapaul/openmrs-module-wellness-inventory.git</url>
         <tag>HEAD</tag>
     </scm>
 
