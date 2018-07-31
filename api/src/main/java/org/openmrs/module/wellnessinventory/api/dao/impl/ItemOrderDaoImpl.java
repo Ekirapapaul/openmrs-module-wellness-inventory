@@ -1,7 +1,11 @@
 package org.openmrs.module.wellnessinventory.api.dao.impl;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
+import org.openmrs.Patient;
+import org.openmrs.api.context.Context;
 import org.openmrs.module.wellnessinventory.api.dao.ItemOrderDao;
 import org.openmrs.module.wellnessinventory.api.model.ItemOrder;
 import org.openmrs.module.wellnessinventory.api.model.ItemStockDetails;
@@ -43,8 +47,27 @@ public class ItemOrderDaoImpl implements ItemOrderDao {
 	public ItemOrder getItemOrder(Integer id) {
 		return (ItemOrder) getSession().get(ItemOrder.class, id);
 	}
-	
-	@Override
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ItemOrder> getClientOrders(Patient patient) {
+	    Session session = getSession();
+        Criteria criteria = session.createCriteria(ItemOrder.class, "inventory_item_order");
+        criteria.add(Restrictions.eq("client",patient));
+        return criteria.list();
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ItemOrder> getClientOrders(Integer patientId) {
+	    Patient patient = Context.getPatientService().getPatient(patientId);
+        Session session = getSession();
+        Criteria criteria = session.createCriteria(ItemOrder.class, "inventory_item_order");
+        criteria.add(Restrictions.eq("client",patient));
+        return criteria.list();
+    }
+
+    @Override
 	@Transactional
 	public ItemOrder saveItemOrder(ItemOrder order) {
 		getSession().saveOrUpdate(order);

@@ -1,5 +1,6 @@
 package org.openmrs.module.wellnessinventory.api.service;
 
+import org.openmrs.Patient;
 import org.openmrs.api.OpenmrsService;
 import org.openmrs.module.wellnessinventory.api.model.ItemOrder;
 import org.openmrs.module.wellnessinventory.api.model.StockRoom;
@@ -30,6 +31,22 @@ public interface InventoryOrderService extends OpenmrsService {
 	 * @return the saved order.
 	 */
 	ItemOrder saveOrder(ItemOrder order);
+
+    /**
+     * Gets a patients supplement orders by patient object
+     *
+     * @param patient the patient instance.
+     * @return the list of orders.
+     */
+    List<ItemOrder> getClientOrders(Patient patient);
+
+    /**
+     * Gets a patients supplement orders by patient id
+     *
+     * @param patientId the patient instance.
+     * @return the list of orders.
+     */
+    List<ItemOrder> getClientOrders(Integer patientId);
 	
 	/**
 	 * Deletes an order

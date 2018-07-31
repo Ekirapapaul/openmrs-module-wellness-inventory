@@ -3,12 +3,15 @@ package org.openmrs.module.wellnessinventory.service.impl;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.openmrs.Patient;
+import org.openmrs.api.PatientService;
 import org.openmrs.api.context.Context;
 import org.openmrs.module.wellnessinventory.api.model.InventoryItem;
 import org.openmrs.module.wellnessinventory.api.model.ItemOrder;
 import org.openmrs.module.wellnessinventory.api.service.InventoryOrderService;
 import org.openmrs.module.wellnessinventory.api.service.InventoryService;
 import org.openmrs.test.BaseModuleContextSensitiveTest;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -17,6 +20,9 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 	private InventoryOrderService orderService;
 	
 	private InventoryService itemService;
+
+	@Autowired
+    PatientService patientService;
 	
 	@Before
 	public void before() throws Exception {
@@ -55,4 +61,20 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 		InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
 		Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
 	}
+
+	@Test
+    public void shouldGetPatientOrders(){
+        Patient patient = patientService.getPatient(12);
+        Assert.assertNotNull(patient);
+        List<ItemOrder> orders = orderService.getClientOrders(patient);
+        Assert.assertEquals(1, orders.size());
+    }
+
+    @Test
+    public void shouldGetPatientOrdersByPatientId(){
+        Patient patient = patientService.getPatient(12);
+        Assert.assertNotNull(patient);
+        List<ItemOrder> orders = orderService.getClientOrders(12);
+        Assert.assertEquals(1, orders.size());
+    }
 }

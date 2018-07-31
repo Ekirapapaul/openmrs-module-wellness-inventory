@@ -2,11 +2,20 @@
 <dataset>
     <location location_id="1" name="Unknown_Location" description=" 0" creator="1" retired="0" retired_by=" 0"
               uuid="8d6c993e-c2cc-11de-8d13-0010c6dffd0f" date_created="2005-09-22 00:00:00"/>
+    <person person_id="12" gender="M" dead="false" creator="1" birthdate_estimated="0"
+            date_created="2008-08-15 15:57:09.0" voided="false" void_reason="For test purposes"
+            uuid="86526ed5-3c11-11de-a0ba-001e378eb67a"/>
+
+    <patient patient_id="12" creator="1" date_created="2018-09-22 00:00:00.0" changed_by="1"
+             date_changed="2008-08-18 12:29:59.0" voided="false" void_reason=""/>
+
     <inventory_stock_room room_id="1" name="main room" location_id="1" uuid="ff9eec9a-8443-11e8-9c62-77553e188e4d"
                           date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
-    <inventory_item_unit unit_id="1" name="Bottles" description="Bottles unit" uuid="26e709fa-89a2-11e8-8ae0-ebe207befe03"
+    <inventory_item_unit unit_id="1" name="Bottles" description="Bottles unit"
+                         uuid="26e709fa-89a2-11e8-8ae0-ebe207befe03"
                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
-    <inventory_item_unit unit_id="2" name="Packets" description="Packets unit" uuid="50f0521a-89a2-11e8-bbad-732322b3fb22"
+    <inventory_item_unit unit_id="2" name="Packets" description="Packets unit"
+                         uuid="50f0521a-89a2-11e8-bbad-732322b3fb22"
                          date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 
     <inventory_item_type name="Vitamins" type_id="1" uuid="b7d77022-7b82-11e8-8a1c-979b6a81b654"
@@ -28,7 +37,8 @@
                              expiration="2017-07-07 06:20:01" uuid="9411c3f2-84e9-11e8-a920-e3038eaea0fe"
                              date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 
-    <inventory_item_order order_id="1" item_id="1" address="Nairobi" delivery_date="2017-07-07 06:20:01" quantity="20" unit_id="2"
-                          is_delivery="0" payment_mode="MPESA" uuid="bc684bda-88e7-11e8-8bf1-17dccc7fa8fd"
+    <inventory_item_order order_id="1" item_id="1" address="Nairobi" delivery_date="2017-07-07 06:20:01" quantity="20"
+                          unit_id="2"
+                          is_delivery="0" payment_mode="MPESA" client_id="12" uuid="bc684bda-88e7-11e8-8bf1-17dccc7fa8fd"
                           date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 </dataset>

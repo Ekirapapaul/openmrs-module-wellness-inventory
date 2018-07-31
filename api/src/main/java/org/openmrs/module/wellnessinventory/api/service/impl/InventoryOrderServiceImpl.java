@@ -1,5 +1,6 @@
 package org.openmrs.module.wellnessinventory.api.service.impl;
 
+import org.openmrs.Patient;
 import org.openmrs.api.impl.BaseOpenmrsService;
 import org.openmrs.module.wellnessinventory.api.dao.InventoryItemDao;
 import org.openmrs.module.wellnessinventory.api.dao.ItemOrderDao;
@@ -62,8 +63,20 @@ public class InventoryOrderServiceImpl extends BaseOpenmrsService implements Inv
 		}
 		return saveOrder;
 	}
-	
-	@Override
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ItemOrder> getClientOrders(Patient patient) {
+        return itemOrderDao.getClientOrders(patient);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<ItemOrder> getClientOrders(Integer patientId) {
+        return itemOrderDao.getClientOrders(patientId);
+    }
+
+    @Override
 	@Transactional
 	public void purgeItemType(ItemOrder itemOrder) {
 		itemOrderDao.purgeItemOrder(itemOrder);
