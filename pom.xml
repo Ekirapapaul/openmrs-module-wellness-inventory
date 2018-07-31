@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -9,7 +10,7 @@
 
     <groupId>org.openmrs.module</groupId>
     <artifactId>wellnessinventory</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Wellnessinventory</name>
     <description>An inventory module for the wellness project</description>
@@ -17,9 +18,10 @@
     <url>https://wiki.openmrs.org/x/FQ4z</url>
 
     <scm>
-        <connection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</connection>
-        <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-wellnessinventory.git</developerConnection>
-        <url>https://github.com/openmrs/openmrs-module-wellnessinventory/</url>
+        <connection>scm:git:git://github.com/Ekirapapaul/openmrs-module-wellness-inventory.git</connection>
+        <developerConnection>scm:git:git@github.com:openmrs/openmrs-module-wellness-inventory..git</developerConnection>
+        <url>scm:git:git@github.com:/Ekirapapaul/openmrs-module-wellness-inventory.git</url>
+        <tag>HEAD</tag>
     </scm>
 
     <modules>
@@ -81,12 +83,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-    <!--<distributionManagement>-->
-        <!--<repository>-->
-            <!--<id>bintray-ekirapa-wellnessinventory</id>-->
-            <!--<name>ekirapa-wellnessinventory</name>-->
-            <!--<url>https://api.bintray.com/maven/ekirapa/wellnessinventory/wellnessinventory/;publish=1</url>-->
-        <!--</repository>-->
-    <!--</distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>bintray-ekirapa-wellnessinventory</id>
+            <name>ekirapa-wellnessinventory</name>
+            <url>https://api.bintray.com/maven/ekirapa/wellnessinventory/wellnessinventory/;publish=1</url>
+        </repository>
+    </distributionManagement>
 
 </project>
