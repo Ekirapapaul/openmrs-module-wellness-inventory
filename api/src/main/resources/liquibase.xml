@@ -398,5 +398,18 @@
                                  baseColumnNames="client_id" referencedTableName="patient"
                                  referencedColumnNames="patient_id"/>
     </changeSet>
+    <changeSet id="wellnessinventory-2018-08-09-11-21" author="ekirapa">
+        <preConditions onFail="MARK_RAN">
+            <tableExists tableName="inventory_stock_details"/>
+        </preConditions>
+        <comment>
+            Add minimum stock column to stock details table
+        </comment>
+        <addColumn tableName="inventory_stock_details">
+            <column name="min_stock" type="int">
+                <constraints nullable="true"/>
+            </column>
+        </addColumn>
+    </changeSet>
 
 </databaseChangeLog>

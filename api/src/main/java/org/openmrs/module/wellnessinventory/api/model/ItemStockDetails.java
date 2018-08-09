@@ -25,6 +25,9 @@ public class ItemStockDetails extends BaseOpenmrsData {
 	@Column(name = "quantity", nullable = false)
 	private int quantity = 0;
 	
+	@Column(name = "min_stock", nullable = false)
+	private int minStock = 0;
+	
 	@Column(name = "name")
 	private String name;
 	
@@ -83,5 +86,13 @@ public class ItemStockDetails extends BaseOpenmrsData {
 	
 	public void setItemUnit(ItemUnit itemUnit) {
 		this.itemUnit = itemUnit;
+	}
+	
+	public int getMinStock() {
+		return minStock;
+	}
+	
+	public void setMinStock(int minStock) {
+		this.minStock = minStock;
 	}
 }
