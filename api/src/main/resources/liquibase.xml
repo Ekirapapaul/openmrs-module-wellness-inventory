@@ -411,5 +411,48 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="ekirapa" id="wellnessinventory-2019-02-18-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="inventory_dispensation"/>
+            </not>
+        </preConditions>
+        <comment>Create inventory dispensatiion table</comment>
+        <createTable tableName="inventory_dispensation">
+            <column name="dispensation_id" autoIncrement="true" type="int">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="dispensed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="dispensation_date" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_created" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="changed_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_changed" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="voided" type="tinyint(1)" defaultValue="0">
+                <constraints nullable="false"/>
+            </column>
+            <column name="voided_by" type="int">
+                <constraints nullable="true"/>
+            </column>
+            <column name="date_voided" type="datetime">
+                <constraints nullable="true"/>
+            </column>
+            <column name="void_reason" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="uuid" type="char(38)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
 
 </databaseChangeLog>
