@@ -45,7 +45,7 @@ public class ItemOrder extends BaseOpenmrsData {
 	private Patient client;
 
     @Column(name = "disspensed", nullable = false)
-    private Boolean voided = Boolean.FALSE;
+    private Boolean dispensed = Boolean.FALSE;
 	
 	@Override
 	public Integer getId() {
@@ -129,13 +129,11 @@ public class ItemOrder extends BaseOpenmrsData {
 		this.client = client;
 	}
 
-    @Override
-    public Boolean getVoided() {
-        return voided;
+    public Boolean getDispensed() {
+        return dispensed;
     }
 
-    @Override
-    public void setVoided(Boolean voided) {
-        this.voided = voided;
+    public void setDispensed(Boolean voided) {
+        this.dispensed = voided;
     }
 }

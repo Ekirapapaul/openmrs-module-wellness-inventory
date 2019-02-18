@@ -31,6 +31,30 @@ public interface InventoryOrderService extends OpenmrsService {
 	 * @return the saved order.
 	 */
 	ItemOrder saveOrder(ItemOrder order);
+
+    /**
+     * Saves and dispese order
+     *
+     * @param order the order to save.
+     * @return the saved order.
+     */
+    ItemOrder saveAnDispenseOrder(ItemOrder order);
+
+    /**
+     * Dispenser an Order
+     *
+     * @param order the order to dispense.
+     * @return the dispensed order.
+     */
+    ItemOrder dispenseOrder(ItemOrder order);
+
+    /**
+     * Dispenser an Order
+     *
+     * @param orders list of orders to dispense.
+     * @return the dispensed order.
+     */
+    List<ItemOrder> dispenseOrders(List<ItemOrder> orders);
 	
 	/**
 	 * Gets a patients supplement orders by patient object
