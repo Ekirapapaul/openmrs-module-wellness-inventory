@@ -406,8 +406,8 @@
             Add minimum stock column to stock details table
         </comment>
         <addColumn tableName="inventory_stock_details">
-            <column name="min_stock" type="int">
-                <constraints nullable="true"/>
+            <column name="min_stock" type="int" defaultValue="0">
+                <constraints nullable="false"/>
             </column>
         </addColumn>
     </changeSet>
