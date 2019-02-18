@@ -39,6 +39,6 @@
 
     <inventory_item_order order_id="1" item_id="1" address="Nairobi" delivery_date="2017-07-07 06:20:01" quantity="20"
                           unit_id="2"
-                          is_delivery="0" payment_mode="MPESA" client_id="12" uuid="bc684bda-88e7-11e8-8bf1-17dccc7fa8fd"
+                          is_delivery="0" payment_mode="MPESA" dispensed="0" client_id="12" uuid="bc684bda-88e7-11e8-8bf1-17dccc7fa8fd"
                           date_created="2017-07-07 06:20:01" voided="0" creator="1"/>
 </dataset>

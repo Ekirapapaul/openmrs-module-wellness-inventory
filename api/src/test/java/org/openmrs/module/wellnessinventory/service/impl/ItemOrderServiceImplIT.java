@@ -59,6 +59,43 @@ public class ItemOrderServiceImplIT extends BaseModuleContextSensitiveTest {
 		Assert.assertEquals(2, items.size());
 		
 		InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
+		Assert.assertEquals(42, updatedInventoryItem.getDetails().iterator().next().getQuantity());
+	}
+	
+	@Test
+	public void shouldSaveAndDispenseOrder() {
+		InventoryItem inventoryItem = itemService.getInventoryItem(1);
+		ItemOrder itemOrder = new ItemOrder();
+		itemOrder.setQuantity(4);
+		itemOrder.setPaymentMode("MPESA");
+		itemOrder.setInventoryItem(inventoryItem);
+		itemOrder.setAddress("Nairobi");
+		itemOrder.seIsDelivery(false);
+		orderService.saveAnDispenseOrder(itemOrder);
+		
+		List<ItemOrder> items = orderService.getAllOrders();
+		Assert.assertEquals(2, items.size());
+		
+		InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
+		Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
+	}
+	
+	@Test
+	public void shouldDispenseOrder() {
+		InventoryItem inventoryItem = itemService.getInventoryItem(1);
+		ItemOrder itemOrder = new ItemOrder();
+		itemOrder.setQuantity(4);
+		itemOrder.setPaymentMode("MPESA");
+		itemOrder.setInventoryItem(inventoryItem);
+		itemOrder.setAddress("Nairobi");
+		itemOrder.seIsDelivery(false);
+		itemOrder = orderService.saveOrder(itemOrder);
+		orderService.dispenseOrder(itemOrder);
+		
+		List<ItemOrder> items = orderService.getAllOrders();
+		Assert.assertEquals(2, items.size());
+		
+		InventoryItem updatedInventoryItem = itemService.getInventoryItem(1);
 		Assert.assertEquals(38, updatedInventoryItem.getDetails().iterator().next().getQuantity());
 	}
 	
