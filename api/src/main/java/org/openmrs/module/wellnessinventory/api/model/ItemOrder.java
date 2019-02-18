@@ -43,6 +43,9 @@ public class ItemOrder extends BaseOpenmrsData {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "client_id")
 	private Patient client;
+
+    @Column(name = "disspensed", nullable = false)
+    private Boolean voided = Boolean.FALSE;
 	
 	@Override
 	public Integer getId() {
@@ -125,4 +128,14 @@ public class ItemOrder extends BaseOpenmrsData {
 	public void setClient(Patient client) {
 		this.client = client;
 	}
+
+    @Override
+    public Boolean getVoided() {
+        return voided;
+    }
+
+    @Override
+    public void setVoided(Boolean voided) {
+        this.voided = voided;
+    }
 }

@@ -454,56 +454,19 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet author="ekirapa" id="wellnessinventory-2019-02-18-2">
+
+    <changeSet id="wellnessinventory-2019-02-18-14-01" author="ekirapa">
         <preConditions onFail="MARK_RAN">
-            <not>
-                <tableExists tableName="inventory_order_dispensation"/>
-            </not>
+            <tableExists tableName="inventory_item_order"/>
         </preConditions>
-        <comment>Create inventory order dispensatiion join table</comment>
-        <createTable tableName="inventory_order_dispensation">
-            <column name="order_id" type="int">
+        <comment>
+            Add dispensed column inventory order  table
+        </comment>
+        <addColumn tableName="inventory_item_order">
+            <column name="dispensed" type="tinyint(1)" defaultValue="0">
                 <constraints nullable="false"/>
             </column>
-            <column name="dispensation_id" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="date_created" type="datetime">
-                <constraints nullable="true"/>
-            </column>
-            <column name="changed_by" type="int">
-                <constraints nullable="true"/>
-            </column>
-            <column name="date_changed" type="datetime">
-                <constraints nullable="true"/>
-            </column>
-            <column name="voided" type="tinyint(1)" defaultValue="0">
-                <constraints nullable="false"/>
-            </column>
-            <column name="voided_by" type="int">
-                <constraints nullable="true"/>
-            </column>
-            <column name="date_voided" type="datetime">
-                <constraints nullable="true"/>
-            </column>
-        </createTable>
+        </addColumn>
     </changeSet>
-
-
-    <changeSet author="ekirapa" id="wellnessinventory-2019-02-18-3">
-        <preConditions onFail="MARK_RAN">
-            <tableExists tableName="inventory_order_dispensation"/>
-            <not>
-                <primaryKeyExists primaryKeyName="pk_order_dispensation"/>
-            </not>
-        </preConditions>
-        <comment>Add two column primary key on join table</comment>
-        <addPrimaryKey
-                columnNames="order_id, dispensation_id"
-                constraintName="pk_order_dispensation"
-                tableName="inventory_order_dispensation"
-        />
-    </changeSet>
-
 
 </databaseChangeLog>
